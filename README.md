@@ -28,3 +28,4 @@ This repository will contain projects and notes from my learning path.
 ---
 
 👉 Connect with me on http://linkedin.com/in/voldi-bokanga
+I document my learning journey on my Hashnode blog: https://secdatablog.hashnode.dev/
