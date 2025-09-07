@@ -1,2 +1,30 @@
-# cybersecurity-journey
-Documenting my path Cloud security Analyst 
+# My Cybersecurity Journey - From Zero to Hero
+
+> Started on September 8, 2025
+
+## 🎯 Objective
+
+Aspiring SOC Analyst building a hybrid skill set in Cybersecurity and Data Analysis to excel in threat detection and cloud security.
+
+## 🔧 Current Focus
+
+-   **Certifications:** Google Cybersecurity Professional Certificate | CompTIA Security+ (In Progress)
+-   **Skills:** Python (Pandas) | SIEM Concepts | Linux | Network Security | AWS Fundamentals
+-   **Platforms:** TryHackMe | Coursera
+
+## 📂 Projects
+
+This repository will contain projects and notes from my learning path.
+
+| Project Name | Description                                                                         | Status       |
+| :----------- | :---------------------------------------------------------------------------------- | :----------- |
+| **Log Analysis** | Python scripts for parsing and analyzing security logs.                             | `Planned`    |
+| **THM Write-ups** | Notes and solutions for TryHackMe rooms.                                            | `In Progress` |
+
+## 📈 Progress
+
+-   **September 7, 2025** Created this repository and defined my learning roadmap.
+
+---
+
+👉 Connect with me on http://linkedin.com/in/voldi-bokanga
