@@ -18,7 +18,7 @@ This repository will contain projects and notes from my learning path.
 
 | Project Name | Description                                                                         | Status       |
 | :----------- | :---------------------------------------------------------------------------------- | :----------- |
-| **Log Analysis** | Python scripts for parsing and analyzing security logs.                             | `Planned`    |
+| **Cloud Logs Analyzer & Security Dashboard** | Python scripts for parsing and analyzing security logs.                             | `Planned`    |
 | **THM Write-ups** | Notes and solutions for TryHackMe rooms.                                            | `In Progress` |
 
 ## 📈 Progress
