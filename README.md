@@ -27,6 +27,26 @@ This repository will contain projects and notes from my learning path.
 -   **September 7, 2025** Created this repository and defined my learning roadmap.
 
 ---
+### 📈 What I'm Learning NOW
 
+### 🏗️ Building Practical Skills
+- **IT & Infrastructure:** Hardware, systems, networking
+- **Cloud Computing:** AWS, cloud services, architecture  
+- **Data Fundamentals:** **Python, Pandas**, statistics, analysis
+- **Real Projects:** SalesFlow Lite development, cloud logs Analyzer developement
+
+### 🎯 Learning with Purpose
+- Following a custom-designed learning path
+- Focusing on skills that matter in the industry
+- **Developing strong Python/Pandas capabilities**
+- Combining multiple disciplines for unique expertise
+- Building things that work in the real world
+
+### ⚡ Right Now
+- Deep diving into computer systems fundamentals
+- **Mastering data manipulation with Pandas**
+- Parallelly exploring cloud computing concepts
+- Applying everything to actual project development
+  
 👉 Connect with me on http://linkedin.com/in/voldi-bokanga
 I document my learning journey on my Hashnode blog: https://secdatablog.hashnode.dev/
