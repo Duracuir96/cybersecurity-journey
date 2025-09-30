@@ -87,3 +87,22 @@ Each component has one clear responsibility:
 - **Alert Engine**: Evaluates security thresholds and conditions
 - **Multi-Channel Notifier**: Supports email, Slack, and SMS notifications
 - **Critical Event Handler**: Manages urgent security incidents
+
+  
+```mermaid
+    graph TB
+    A[AWS Cloud] --> B[Cloud Connector]
+    B --> C[Data Processor]
+    C --> D[Security Analyzer]
+    D --> E[Streamlit Dashboard]
+    D --> F[Alert Engine]
+    E --> G[User Browser]
+    F --> H[Email/Slack/SMS]
+
+    style A fill:#ff9900
+    style B fill:#ff6b6b
+    style C fill:#ffd43b
+    style D fill:#74c0fc
+    style E fill:#51cf66
+    style F fill:#f783ac
+```
