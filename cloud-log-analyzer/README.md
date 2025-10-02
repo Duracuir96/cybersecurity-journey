@@ -62,4 +62,4 @@ pip install -r requirements.txt
   ```
 ### Progress 
 - create IAM user ✅
-- Configured AWS CloudTrail to capture and retrieve AWS account activity logs✅
+- ![Configured AWS CloudTrail to capture and retrieve AWS account activity logs✅](cloud-log-analyzer/Docs/Assets/imagev.png)
