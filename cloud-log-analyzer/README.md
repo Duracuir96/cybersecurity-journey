@@ -46,17 +46,20 @@ A real-time cloud security monitoring tool that analyzes AWS CloudTrail logs to 
    ```bash
    git clone https://github.com/yourusername/cloud-security-analyzer.git
    cd cloud-security-analyzer
-
+   ```
 2.  **Install dependencies**
    ```bash
 pip install -r requirements.txt
-
+   ``` 
 3.  **Configure environment variables**
  ```bash
   cp .env.example .env
   # Edit .env with your AWS credentials and email settings
-
+```
 4.  **Run the dashboard**
  ```bash
   streamlit run src/dashboard.py
-  
+  ```
+### Progress 
+- create IAM user ✅
+- ![Configured AWS CloudTrail to capture and retrieve AWS account activity logs✅](cloud-log-analyzer/Docs/Assets/imagev.png)
