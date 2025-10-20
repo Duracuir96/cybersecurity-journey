@@ -9,6 +9,7 @@ This folder documents my hands-on learning journey in cybersecurity, cloud techn
 - Networking & Infrastructure  
 - Cloud Computing (AWS/Azure)
 - Cybersecurity Basics
+- Data fundamentals (python, panda)
 
 **Skills in Development:**
 - Network Configuration & Troubleshooting
