@@ -9,8 +9,8 @@ Aspiring SOC Analyst building a hybrid skill set in Cybersecurity and Data Analy
 ## 🔧 Current Focus
 
 -   **Certifications:** Google Cybersecurity Professional Certificate | CompTIA Security+ (In Progress)
--   **Skills:** Python (Pandas) | SIEM Concepts | Linux | Network Security | AWS Fundamentals
--   **Platforms:** TryHackMe | Coursera
+-   **Skills:** Python (Pandas) | SIEM Concepts | Linux | Network Security | AWS Fundamentals | Microsoft Azure fundamentals
+-   **Platforms:** TryHackMe | Professor Messer's videos(Comptia A+ core 220-1110 , Comptia Network+ N10-9) | AWS skill Builder(AWS cloud certified practionner) | Microsoft training  (Introduction to Microsoft Azure: Describe cloud concepts) | python for everybody , geeks for geeks
 
 ## 📂 Projects
 
