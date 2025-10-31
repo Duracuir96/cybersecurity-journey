@@ -5,11 +5,11 @@ This folder documents my hands-on learning journey in cybersecurity, cloud techn
 
 ## 🎯 Learning Objectives
 **Current Focus:**
-- IT Fundamentals & Technical Support
-- Networking & Infrastructure  
-- Cloud Computing (AWS/Azure)
+- [IT Fundamentals & Technical Support](https://github.com/Duracuir96/cybersecurity-journey/tree/main/self-learning%20labs/IT%20FUNDAMENTALS)
+- [Networking & Infrastructure](https://github.com/Duracuir96/cybersecurity-journey/tree/main/self-learning%20labs/NETWORK%20)  
+- [Cloud Computing (AWS)](https://github.com/Duracuir96/cybersecurity-journey/tree/main/self-learning%20labs/AWS_labs%20)
 - Cybersecurity Basics
-- Data fundamentals (python, panda)
+- [Data fundamentals (python, panda)](https://github.com/Duracuir96/cybersecurity-journey/tree/main/self-learning%20labs/Python-Basics%20and%20Data%20science(panda%2Cstreamlit))
 
 **Skills in Development:**
 - Network Configuration & Troubleshooting
