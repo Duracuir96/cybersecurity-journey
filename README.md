@@ -30,7 +30,8 @@ This repository will contain projects and notes from my learning path.
 
 ## 📈 Progress
 
--   **September 7, 2025** Created this repository and defined my learning roadmap.
+-   **September 7, 2025 :** Created this repository and defined my learning roadmap.
+-   **October 31, 2025 :** Mastered IT infrastructure fundamentals through **CompTIA A+ Core 1 training (hardware, networking, virtualization.)**- directly applicable to optimizing my security projects.
 
 ---
 ### 📈 What I'm Learning NOW
