@@ -78,90 +78,32 @@ A cloud-native security monitoring tool that analyzes AWS CloudTrail logs to det
 
 ## 🚀 ADVANCED FEATURES (Future Roadmap)
 
-### 1. Enhanced Data Processing
-#### 1.1 Advanced Cloud Integration
-- [ ] **Real-time Processing**
-  - CloudWatch Events/EventBridge integration
-  - Streaming data processing
-  - Near real-time detection
-- [ ] **Multi-Region Support**
-  - Aggregate logs from multiple AWS regions
-  - Regional threat analysis
-- [ ] **Multi-Cloud Support**
-  - Azure Activity Log integration
-  - Google Cloud Audit Logs
-  - Unified cross-cloud analytics
-
-#### 1.2 Intelligent Analysis
-- [ ] **Machine Learning Detection**
-  - Anomaly detection using Isolation Forest
-  - Behavioral analysis of user activities
-  - Predictive threat modeling
-- [ ] **Advanced Correlation**
-  - Sequence analysis of related events
-  - Timeline-based threat detection
-  - Risk scoring for IP addresses and users
+### 1. Advanced Data Processing
+- [ ] **Real-time Analysis**: Live detection via EventBridge/CloudWatch
+- [ ] **Multi-cloud Support**: AWS CloudTrail → Azure Activity Logs → GCP Audit Logs  
+- [ ] **Integrated ML**: Automatic anomaly detection (Isolation Forest, One-Class SVM)
+- [ ] **Smart Correlation**: Grouping related events by user session
 
 ### 2. Professional Dashboard
-#### 2.1 Enhanced Visualization
-- [ ] **Interactive Features**
-  - Date range selector for historical analysis
-  - Geographic IP mapping (st.map)
-  - Drill-down capabilities
-  - Custom time series charts
-- [ ] **Advanced UI/UX**
-  - Dark/Light theme toggle
-  - Export functionality (PDF, CSV)
-  - Responsive mobile design
-  - Custom styling and branding
+- [ ] **Customizable Interface**: Dark/light themes, advanced filters
+- [ ] **Automatic Export**: Scheduled PDF/CSV reports
+- [ ] **Team Management**: Multi-user authentication with RBAC
+- [ ] **Geographic Mapping**: IP visualization on world map
 
-#### 2.2 Enterprise Features
-- [ ] **User Management**
-  - Multi-user authentication
-  - Role-based access control
-  - User activity auditing
-- [ ] **Reporting & Analytics**
-  - Scheduled report generation
-  - Custom dashboard creation
-  - Advanced filtering and search
-
-### 3. Sophisticated Alerting
-#### 3.1 Multi-Channel Notifications
-- [ ] **Platform Integration**
-  - Slack webhook notifications
-  - Microsoft Teams integration
-  - SMS alerts via AWS SNS
-  - Webhook support for custom integrations
-- [ ] **Smart Alerting**
-  - Adaptive thresholds based on historical data
-  - Alert deduplication and grouping
-  - Escalation policies
-  - Customizable alert templates
+### 3. Smart Alerting
+- [ ] **Multi-channel**: Slack, Teams, SMS (AWS SNS), Webhooks
+- [ ] **Deduplication**: Grouping similar alerts
+- [ ] **Adaptive Thresholds**: Automatic adjustment based on history
+- [ ] **Escalation Policies**: Automatic routing to right personnel
 
 ### 4. Production Architecture
-#### 4.1 Scalable Infrastructure
-- [ ] **Containerization**
-  - Docker containerization
-  - Docker Compose for local development
-  - Kubernetes deployment manifests
-- [ ] **Database Integration**
-  - PostgreSQL for persistent storage
-  - Data retention policies
-  - Query optimization for large datasets
+- [ ] **Containerization**: Docker + Docker Compose + Kubernetes
+- [ ] **Database**: PostgreSQL for storage and analytics
+- [ ] **CI/CD**: GitHub Actions with automated testing
+- [ ] **Monitoring**: Performance and usage metrics
+- [ ] **Security Hardening**: Secrets management, compliance
 
-#### 4.2 DevOps & Monitoring
-- [ ] **CI/CD Pipeline**
-  - GitHub Actions for automated testing
-  - Automated deployment pipelines
-  - Environment-specific configurations
-- [ ] **Application Monitoring**
-  - Application performance monitoring
-  - Usage analytics
-  - Error tracking and logging
-- [ ] **Security Hardening**
-  - Secret management with AWS Secrets Manager
-  - Network security configurations
-  - Compliance reporting
+---
 
 ### 5. Advanced Analytics
 #### 5.1 Threat Intelligence
@@ -186,22 +128,6 @@ A cloud-native security monitoring tool that analyzes AWS CloudTrail logs to det
 | Streamlit Dashboard | HIGH | Low | HIGH |
 | Email Alerts | MEDIUM | Low | MEDIUM |
 | GitHub Deployment | HIGH | Low | HIGH |
-
-### Phase 2 (Weeks 9-16) - Enhanced
-| Feature | Priority | Effort | Business Value |
-|---------|----------|--------|----------------|
-| Date Range Selector | HIGH | Low | HIGH |
-| Multi-Region Support | MEDIUM | Medium | MEDIUM |
-| Advanced Visualizations | MEDIUM | Medium | MEDIUM |
-| Slack Integration | MEDIUM | Low | MEDIUM |
-
-### Phase 3 (Weeks 17-24) - Advanced
-| Feature | Priority | Effort | Business Value |
-|---------|----------|--------|----------------|
-| Machine Learning | LOW | High | MEDIUM |
-| Multi-Cloud Support | LOW | High | MEDIUM |
-| Containerization | MEDIUM | Medium | LOW |
-| User Authentication | LOW | Medium | LOW |
 
 ---
 

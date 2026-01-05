@@ -9,8 +9,8 @@ Aspiring SOC Analyst building a hybrid skill set in Cybersecurity and Data Analy
 ## 🔧 Current Focus
 
 -   **Certifications:** Google Cybersecurity Professional Certificate | CompTIA Security+ (In Progress)
--   **Skills:** Python (Pandas) | SIEM Concepts | Linux | Network Security | AWS Fundamentals
--   **Platforms:** TryHackMe | Coursera
+-   **Skills:** Python (Pandas) | SIEM Concepts | Linux | Network Security | AWS Fundamentals | Microsoft Azure fundamentals
+-   **Platforms:** TryHackMe | Professor Messer's videos(Comptia A+ core 220-1110 , Comptia Network+ N10-9) | AWS skill Builder(AWS cloud certified practionner) | Microsoft training  (Introduction to Microsoft Azure: Describe cloud concepts) | python for everybody , geeks for geeks
 
 ## 📂 Projects
 
@@ -30,7 +30,12 @@ This repository will contain projects and notes from my learning path.
 
 ## 📈 Progress
 
--   **September 7, 2025** Created this repository and defined my learning roadmap.
+-   **September 7, 2025 :** Created this repository and defined my learning roadmap.
+-   **October 31, 2025 :** Mastered IT infrastructure fundamentals through **✅CompTIA A+ Core 1 training (hardware, networking, virtualization.)**- directly applicable to optimizing my security projects.
+-   **November 1, 2025:** **✅ Completed AWS Cloud Practitioner Certification** - Mastered cloud concepts, AWS services, security, architecture pillars , pricing, and support.
+
+  
+[👉**For more details of progress**](https://github.com/Duracuir96/cybersecurity-journey/tree/main/self-learning%20labs)
 
 ---
 ### 📈 What I'm Learning NOW
