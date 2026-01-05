@@ -1,0 +1,95 @@
+version: "3.9"
+
+services:
+  # ===============================
+  # POSTGRES
+  # ===============================
+  postgres:
+    image: postgres:15-alpine
+    container_name: salesflow-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: salesflow
+      POSTGRES_USER: ${SPRING_DATASOURCE_USERNAME}
+      POSTGRES_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+    volumes:
+      - salesflow_pgdata:/var/lib/postgresql/data
+
+  # ===============================
+  # REDIS
+  # ===============================
+  redis:
+    image: redis:7-alpine
+    container_name: salesflow-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+  # ===============================
+  # JAVA API (SPRING BOOT)
+  # ===============================
+  java-api:
+    image: salesflow-java:latest
+    container_name: salesflow-java-api
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      SPRING_JPA_HIBERNATE_DDL_AUTO: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
+      SPRING_FLYWAY_ENABLED: ${SPRING_FLYWAY_ENABLED}
+      APP_JWT_SECRET: ${APP_JWT_SECRET}
+
+  # ===============================
+  # PYTHON API (FASTAPI)
+  # ===============================
+  python-api:
+    image: salesflow-python-voldi:latest
+    container_name: salesflow-python-api
+    restart: unless-stopped
+    depends_on:
+      - java-api
+      - redis
+    ports:
+      - "8081:8081"
+    environment:
+      JAVA_API_URL: http://salesflow-java-api:8080/api/v1
+      JAVA_JWT_SECRET: ${JAVA_JWT_SECRET}
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+      DEV_MODE: ${DEV_MODE}
+      ML_ENV: ${ML_ENV}
+      SYSTEM_JWT_TOKEN: ${SYSTEM_JWT_TOKEN}
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_PORT: ${SMTP_PORT}
+      SMTP_USER: ${SMTP_USER}
+      SMTP_PASSWORD: ${SMTP_PASSWORD}
+      ALERT_EMAIL_TO: ${ALERT_EMAIL_TO}
+
+  # ===============================
+  # FRONTEND (NGINX + VITE BUILD)
+  # ===============================
+  frontend:
+    image: salesflow-frontend:latest
+    container_name: salesflow-frontend
+    restart: unless-stopped
+    depends_on:
+      - java-api
+      - python-api
+    ports:
+      - "5174:80"
+    environment:
+      VITE_JAVA_API_URL: ${VITE_JAVA_API_URL}
+      VITE_PYTHON_API_URL: ${VITE_PYTHON_API_URL}
+
+# ===============================
+# VOLUMES
+# ===============================
+volumes:
+  salesflow_pgdata:
