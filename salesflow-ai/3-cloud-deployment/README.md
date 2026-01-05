@@ -31,12 +31,12 @@ All services communicate over a Docker network using explicit ports and environm
   - PostgreSQL
   - Redis
   - Frontend
- 
-
-![45b13c47237fcaca2a78dfe1d1ed75a4](https://github.com/user-attachments/assets/4392f55d-a2c1-45e0-b2b1-a6618d440c1e)
-
 - `docs/`  
   Architecture diagrams and technical documentation (microservices, pipelines, data flows).
+  <img width="450" height="852" alt="image" src="https://github.com/user-attachments/assets/f42c1991-54b2-4a53-bbb1-868838710072" />
+  <img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/e4fb92b4-c9bb-4f47-9795-be76b3dd9465" />
+
+
 
 ---
 
