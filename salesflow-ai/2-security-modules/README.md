@@ -5,7 +5,127 @@ This module reflects **real backend security engineering**, aligned with a **Jav
 
 The focus is on **authentication, input validation, contract enforcement, and operational resilience**, rather than theoretical security features.
 
+
 ---
+
+## 🔐 Unified Authentication Architecture (Design Decision)
+
+### 🎯 Problem Statement
+
+SalesFlow-Lite is built on a **Java ↔ Python microservice architecture**, which introduces a critical security challenge:
+
+> **How to authenticate users and services consistently across multiple backends without duplicating identity logic or creating trust ambiguities?**
+
+Common anti-patterns avoided:
+
+* Each service issuing its own JWT
+* Python acting as an identity provider
+* Token re-signing between services
+* Shared database access for authentication
+
+These patterns typically lead to:
+
+* Broken trust boundaries
+* Token confusion attacks
+* Over-privileged services
+* Hard-to-audit security flows
+
+---
+
+### 🧠 Architectural Decision
+
+SalesFlow-Lite adopts a **Single Authority Authentication Model**.
+
+### Key Decision
+
+> **The Java API is the sole authentication authority.
+> The Python API is a strictly downstream, trust-based consumer.**
+
+This results in:
+
+* One identity source
+* One JWT format
+* One signing secret
+* One issuer (`iss = "salesflow-app"`)
+
+---
+
+### 🏗️ Authentication Flow (High-Level)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4e382d10-b585-4a77-a171-2f3c5b844516" width="45%" />
+  <img src="https://github.com/user-attachments/assets/a1647f50-8d17-432f-87f0-793321aa0189" width="45%" />
+</p>
+
+                    
+
+
+There is **no lateral trust** between services — only **vertical trust**.
+
+---
+
+### 🔒 Security Boundaries Enforced
+
+| Component  | Responsibility             | Trust Level         |
+| ---------- | -------------------------- | ------------------- |
+| Frontend   | Token storage & forwarding | Untrusted           |
+| Java API   | Identity & authorization   | Trusted authority   |
+| Python API | Validation & execution     | Restricted          |
+| Database   | Persistence                | Private (Java-only) |
+
+Python **cannot authenticate users**, **cannot escalate privileges**, and **cannot access persistence directly**.
+
+---
+
+### 🧩 Implementation Mapping (Design → Code)
+
+| Architectural Rule      | Enforced By               |
+| ----------------------- | ------------------------- |
+| Single JWT issuer       | `jwt_validator.py`        |
+| No token mutation       | FastAPI dependency design |
+| Strict validation       | HS256 + `iss` + `exp`     |
+| Least privilege         | Service-to-service JWT    |
+| No identity duplication | No auth logic in Python   |
+| Environment safety      | `DEV_MODE` guards         |
+
+---
+
+## 🚨 What This Architecture Prevents
+
+* Token forgery between services
+* Identity desynchronization
+* Accidental privilege escalation
+* Authentication logic drift
+* “Shadow auth” implementations
+
+---
+
+### 🧪 Why This Matters (Engineering Perspective)
+
+This unified authentication architecture:
+
+* Scales cleanly with new microservices
+* Is auditable and testable
+* Matches real-world enterprise patterns
+* Separates **identity** from **computation**
+
+> Python focuses on **analytics, ML, and automation**, not identity.
+
+---
+
+### 🏁 Takeaway
+
+This is **not** just JWT validation.
+
+It is a **deliberate security architecture** designed to:
+
+* Centralize trust
+* Minimize attack surface
+* Enforce least privilege
+* Keep services loosely coupled but securely integrated
+
+---
+
+
 
 ## 🛠️ Implemented Security Components
 
