@@ -7,7 +7,7 @@ It focuses on **real backend automation**, **analytics pipelines**, and **ML-ass
 
 ## ✅ Implemented Automation Classes
 
-### 🔹 1. Task & Script Automation [<sub>(for more details)</sub>](salesflow-ai/4-automation-scripts/scripts.md)
+### 🔹 1. Task & Script Automation [<sub>(for more details)</sub>](scripts.md)
 **Type:** Batch / On-demand automation
 
 **Implemented:**
@@ -21,7 +21,7 @@ It focuses on **real backend automation**, **analytics pipelines**, and **ML-ass
 
 ---
 
-### 🔹 2. Tool & API Automation [<sub>(for more details)</sub>](salesflow-ai/4-automation-scripts/api-orchestration.md)
+### 🔹 2. Tool & API Automation [<sub>(for more details)</sub>](api-orchestration.md)
 **Type:** Service-to-service automation
 
 **Implemented:**
@@ -34,7 +34,7 @@ It focuses on **real backend automation**, **analytics pipelines**, and **ML-ass
 - Reduces coupling between systems
 
 ---
-### 🔹 3. Automated Pipelines (Core of the Backend) [<sub>(for more details)</sub>](salesflow-ai/4-automation-scripts/pipelines.md)
+### 🔹 3. Automated Pipelines (Core of the Backend) [<sub>(for more details)</sub>](pipelines.md)
 **Type:** ETL-like backend pipelines
 
 **Pipelines implemented:**
@@ -108,7 +108,7 @@ It focuses on **real backend automation**, **analytics pipelines**, and **ML-ass
 
 ---
 
-### 🔹 5. ML-Assisted Automation (Partial / Decision Support)  [<sub>(for more details)</sub>](salesflow-ai/4-automation-scripts/ml-automation.md)     
+### 🔹 5. ML-Assisted Automation (Partial / Decision Support)  [<sub>(for more details)</sub>](ml-automation.md)     
 **Type:** Intelligent assistance (non-autonomous)
 
 **Implemented:**
