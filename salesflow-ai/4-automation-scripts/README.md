@@ -7,7 +7,7 @@ It focuses on **real backend automation**, **analytics pipelines**, and **ML-ass
 
 ## ✅ Implemented Automation Classes
 
-### 🔹 1. Task & Script Automation
+### 🔹 1. Task & Script Automation [<sub>(for more details)</sub>](salesflow-ai/4-automation-scripts/scripts.md)
 **Type:** Batch / On-demand automation
 
 **Implemented:**
@@ -21,7 +21,7 @@ It focuses on **real backend automation**, **analytics pipelines**, and **ML-ass
 
 ---
 
-### 🔹 2. Tool & API Automation
+### 🔹 2. Tool & API Automation [<sub>(for more details)</sub>](salesflow-ai/4-automation-scripts/api-orchestration.md)
 **Type:** Service-to-service automation
 
 **Implemented:**
@@ -34,7 +34,7 @@ It focuses on **real backend automation**, **analytics pipelines**, and **ML-ass
 - Reduces coupling between systems
 
 ---
-### 🔹 3. Automated Pipelines (Core of the Backend)
+### 🔹 3. Automated Pipelines (Core of the Backend) [<sub>(for more details)</sub>](salesflow-ai/4-automation-scripts/pipelines.md)
 **Type:** ETL-like backend pipelines
 
 **Pipelines implemented:**
@@ -94,14 +94,7 @@ It focuses on **real backend automation**, **analytics pipelines**, and **ML-ass
 - Performance metrics collection for optimization
 - Error tracking with automated alerting for failures
 
-**Production Metrics:**
-- **Average pipeline execution time**: < 2 seconds
-- **Cache hit rate**: 85-92% across all pipelines
-- **Error rate**: < 0.5% in production
-- **Success rate**: > 99.5% across all automated workflows
-
-
-### 🔹 4. Scheduled Automation
+### 🔹 4. Scheduled Automation  [<sub>(for more details)</sub>](salesflow-ai/4-automation-scripts/scheduling.md)
 **Type:** Time-based automation (Ops-oriented)
 
 **Implemented:**
@@ -115,7 +108,7 @@ It focuses on **real backend automation**, **analytics pipelines**, and **ML-ass
 
 ---
 
-### 🔹 5. ML-Assisted Automation (Partial / Decision Support)
+### 🔹 5. ML-Assisted Automation (Partial / Decision Support)  [<sub>(for more details)</sub>](salesflow-ai/4-automation-scripts/ml-automation.md)     
 **Type:** Intelligent assistance (non-autonomous)
 
 **Implemented:**
