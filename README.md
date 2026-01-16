@@ -20,7 +20,7 @@ This repository will contain projects and notes from my learning path.
 | :----------- | :---------------------------------------------------------------------------------- | :----------- |
 | [**Cloud Logs Analyzer & Security Dashboard**](cloud-log-analyzer) | Python scripts for parsing and analyzing security logs.                             | `In Progress`   |
 | **THM Write-ups** | Notes and solutions for TryHackMe rooms.                                            | `Planned` |
-| [**Sales flow lite** ](salesflow-ai)|   **Python Data & AI Microservice** I developed for the **SalesFlow Lite**(a sales management dashboard) project                                          | `In Progress` |
+| [**Sales flow lite** ](salesflow-ai)|   **Python Data & AI Microservice** I developed for the **SalesFlow Lite**(a sales management dashboard) project                                          | `DONE` |
 ## 🎯 My Deliverables
 
 ### 🔰 Foundation Level
