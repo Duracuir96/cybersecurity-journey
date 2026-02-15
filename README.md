@@ -31,8 +31,11 @@ This repository will contain projects and notes from my learning path.
 ## 📈 Progress
 
 -   **September 7, 2025 :** Created this repository and defined my learning roadmap.
+
 -   **October 31, 2025 :** Mastered IT infrastructure fundamentals through **✅CompTIA A+ Core 1 training (hardware, networking, virtualization.)**- directly applicable to optimizing my security projects.
+  
 -   **November 1, 2025:** **✅ Completed AWS Cloud Practitioner Certification** - Mastered cloud concepts, AWS services, security, architecture pillars , pricing, and support.
+  
 -   **December 31, 2025**: ✅ Designed and implemented **SalesFlow-Lite**, a cloud-ready, secure analytics
     and automation backend.
     - Built a **dual-backend architecture (Java + Python)** with a single authentication authority
@@ -42,7 +45,8 @@ This repository will contain projects and notes from my learning path.
     - Integrated **Redis caching**, scheduling (cron), and automated anomaly alerting
     → This project bridges **Cloud architecture, Data engineering, and Cybersecurity**
       in a production-oriented, real-world system.
-
+      
+- **February 16, 2026:** **✅ Completed Microsoft Azure Fundamentals (AZ-900) Learning Path** - Gained comprehensive understanding of cloud concepts, core Azure services, solutions, management tools, governance, security, compliance, pricing, and support.
   
 [👉**For more details of progress**](https://github.com/Duracuir96/cybersecurity-journey/tree/main/self-learning%20labs)
 
