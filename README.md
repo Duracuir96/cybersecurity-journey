@@ -47,6 +47,7 @@ This repository will contain projects and notes from my learning path.
       in a production-oriented, real-world system.
       
 - **February 16, 2026:** **✅ Completed Microsoft Azure Fundamentals (AZ-900) Learning Path** - Gained comprehensive understanding of cloud concepts, core Azure services, solutions, management tools, governance, security, compliance, pricing, and support.
+- **February 16, 2026: ✅ Completed Comprehensive SQL Mastery Track** – Gained expertise in SQL fundamentals, advanced querying (joins, subqueries, views, indexes), aggregate functions, database design and modeling, security best practices, and database connectivity.
   
 [👉**For more details of progress**](https://github.com/Duracuir96/cybersecurity-journey/tree/main/self-learning%20labs)
 
