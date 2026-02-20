@@ -48,6 +48,7 @@ This repository will contain projects and notes from my learning path.
       
 - **February 16, 2026:** **✅ Completed Microsoft Azure Fundamentals (AZ-900) Learning Path** - Gained comprehensive understanding of cloud concepts, core Azure services, solutions, management tools, governance, security, compliance, pricing, and support.
 - **February 16, 2026: ✅ Completed Comprehensive SQL Mastery Track** – Gained expertise in SQL fundamentals, advanced querying (joins, subqueries, views, indexes), aggregate functions, database design and modeling, security best practices, and database connectivity.
+- **February 20, 2026**: ✅ **Completed Comprehensive Networking Fundamentals Mastery(CompTIA Network+ Certification Training)** – Acquired deep understanding of networking essentials including the OSI model, TCP/IP protocols, routing and switching, network security concepts (firewalls, VPNs, IDS/IPS), wireless technologies, network troubleshooting methodologies, and infrastructure monitoring. This knowledge directly strengthens my ability to design secure, resilient cloud data architectures and understand the underlying network layers critical for cybersecurity.
   
 [👉**For more details of progress**](https://github.com/Duracuir96/cybersecurity-journey/tree/main/self-learning%20labs)
 
