@@ -9,28 +9,41 @@ class LogParser:
         parsed = []
 
         for event in raw_logs:
+            # Detect the format - AWs has the key "EventName"
+            is_aws_format = "EventName" in event
+            if is_aws_format:
+                parsed.append({
+                "eventTime":       event.get("EventTime", None),
+                "eventName":       event.get("EventName", ""),
+                "eventSource":     event.get("EventSource", ""),
+                "sourceIPAddress": event.get("SourceIPAddress", "unknown"),
+                "userName":        event.get("Username", "unknown")
+                })
 
-            # userIdentity nested 
-            user_identity = event.get("userIdentity",{})
-            user_name = user_identity.get("userName","unknown")
+            else:
 
-            # keep just only 5 variables 
+                # userIdentity nested 
+                user_identity = event.get("userIdentity",{})
+                user_name = user_identity.get("userName","unknown")
 
-            parsed.append({
-                "eventTime":  event.get("eventTime", ""),
-                "eventName": event.get("eventName", ""),
-                "eventSource": event.get("eventSource", ""),
-                "sourceIPAddress": event.get("sourceIPAddress", "unknown"),
-                "userName":        user_name
+                # keep just only 5 variables 
+
+                parsed.append({
+                    "eventTime":  event.get("eventTime", ""),
+                    "eventName": event.get("eventName", ""),
+                    "eventSource": event.get("eventSource", ""),
+                    "sourceIPAddress": event.get("sourceIPAddress", "unknown"),
+                    "userName":        user_name
 
             })
-            return parsed 
+        return parsed 
 
     def to_dataframe(self, parsed_logs):
         """
         input : lict[dict] propre (from parse_json)
         output: structured Dataframe Pandas 
         """
-        df = ["eventTime"] = pd.to_datatime(df["eventTime"])
+        df = pd.DataFrame(parsed_logs)
+        df["eventTime"] = pd.to_datetime(df["eventTime"])
 
         return df 
