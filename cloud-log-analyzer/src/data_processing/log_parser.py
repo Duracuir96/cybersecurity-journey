@@ -44,6 +44,13 @@ class LogParser:
         output: structured Dataframe Pandas 
         """
         df = pd.DataFrame(parsed_logs)
+         # Guard — if DataFrame is empty, return it with correct columns
+        if df.empty:
+            return pd.DataFrame(columns= [
+                "eventTime", "eventName", "eventSource",
+                "sourceIPAddress", "userName"
+            ])
+
         df["eventTime"] = pd.to_datetime(df["eventTime"])
 
         return df 
