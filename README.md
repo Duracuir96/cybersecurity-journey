@@ -33,7 +33,7 @@ This repository will contain projects and notes from my learning path.
 -   **September 7, 2025 :** Created this repository and defined my learning roadmap.
 -   **October 31, 2025 :** Mastered IT infrastructure fundamentals through **✅CompTIA A+ Core 1 training (hardware, networking, virtualization.)**- directly applicable to optimizing my security projects.
 -   **November 1, 2025:** **✅ Completed AWS Cloud Practitioner Certification** - Mastered cloud concepts, AWS services, security, architecture pillars , pricing, and support.
-  <img width="500" height="700" alt="image" src="https://github.com/user-attachments/assets/fba24328-13b5-4355-8e2e-d35be7f78f0b" />
+  <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/fba24328-13b5-4355-8e2e-d35be7f78f0b" />
 
 - **December 31, 2025**: Designed and implemented [SalesFlow-Lite](https://github.com/aws-samples/salesflow-lite), a cloud-ready, secure analytics and automation backend.
     - Built a **dual-backend architecture (Java + Python)** with a single authentication authority
@@ -50,7 +50,7 @@ This repository will contain projects and notes from my learning path.
     - Core Azure services
     - Solutions and management tools
     - Governance, security, compliance, pricing, and support
-     <img width="500" height="700" alt="image" src="https://github.com/user-attachments/assets/8d9e5bb8-7368-4083-a821-e3ca32e128d7" />
+     <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/8d9e5bb8-7368-4083-a821-e3ca32e128d7" />
 
 
 - **February 16, 2026**: ✅ **Completed Comprehensive SQL Mastery Track**
@@ -91,7 +91,7 @@ Absolument ! Voici votre journal de progression mis à jour avec l'ajout demand�
 
     > This knowledge forms the operational backbone of my Cybersecurity profile. By mastering DevOps and SRE, I can now design, deploy, and reliably operate secure cloud data pipelines at scale, while understanding exactly how to measure and maintain their reliability. The concepts of error budgets, toil automation, and blameless culture are directly applicable to building resilient security monitoring systems.
     
-    > <img width="500" height="600" alt="image" src="https://github.com/user-attachments/assets/4aee315c-2ac4-437e-9e4c-9e4817bd78b0" />
+    > <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/4aee315c-2ac4-437e-9e4c-9e4817bd78b0" />
 
 
 - **March 28, 2026**: ✅ **Completed Comprehensive Git and GitHub Mastery Track**
@@ -139,7 +139,27 @@ Absolument ! Voici votre journal de progression mis à jour avec l'ajout demand�
     - **Debugging & monitoring**: Log search, debug logging (`ACTIONS_STEP_DEBUG`, `ACTIONS_RUNNER_DEBUG`), visualization graph, job condition logs, status badges, re-runs
 
     > This mastery enables me to design **secure, reusable, and auditable CI/CD pipelines** from first principles. I can now implement least-privilege permissions, prevent script injections, leverage OIDC for cloud authentication, optimize build times with caching, and orchestrate complex multi-job, multi-environment deployments. This directly supports my **CyberSecurity Engineer** goal by automating security scans, compliance checks, and infrastructure deployments with enterprise-grade reliability.
-  
+
+
+- **April 24, 2026**: ✅ **Completed Comprehensive Linux Mastery (Inspired by LFS101x - Introduction to Linux)**
+    Acquired deep understanding of:
+    - Linux philosophy and history
+    - Filesystem Hierarchy Standard (FHS)
+    - Command-line operations and text manipulation (cat, grep, sed, awk, sort, uniq, cut, tr, tee, wc)
+    - User and group management (useradd, usermod, groupadd, /etc/passwd, /etc/shadow)
+    - File permissions (chmod, chown, chgrp, SUID, SGID, sticky bit)
+    - Process management (ps, top, kill, nice, renice, bg, fg, jobs)
+    - System services and systemd (systemctl, journalctl, systemd-analyze)
+    - Networking configuration and troubleshooting (ip, ifconfig, ping, traceroute, ss, netstat, nmcli)
+    - Firewall management (iptables, firewalld, ufw)
+    - Shell scripting (variables, conditionals, loops, functions, error handling, debugging)
+    - Package management (apt, dnf, zypper)
+    - Storage management (partitions, LVM, mounting, df, du, fdisk)
+    - Security features (SELinux, AppArmor, sudo, password policies, process isolation)
+
+    > This mastery solidifies my Linux system administration and security skills, essential for building secure cloud data architectures, automating infrastructure tasks, and hardening systems against threats. Linux is the foundation of most cloud environments and security tools, and this knowledge directly enhances my ability to operate, secure, and automate at scale.
+  <img width="600" height="300" alt="76f93a22fa675217f68c0dece2db16f2" src="https://github.com/user-attachments/assets/71a978d6-ec51-4909-bfd3-88d0af0fc7be" />
+
 [👉**For more details of progress**](https://github.com/Duracuir96/cybersecurity-journey/tree/main/self-learning%20labs)
 
 ---
