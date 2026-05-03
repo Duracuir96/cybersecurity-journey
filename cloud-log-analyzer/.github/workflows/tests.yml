@@ -53,7 +53,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install pytest pandas boto3 botocore
+          pip install -r requirements.txt
 
       # Step 4 — run integration tests only
       - name: Run integration tests
