@@ -159,6 +159,23 @@ Absolument ! Voici votre journal de progression mis à jour avec l'ajout demand�
 
     > This mastery solidifies my Linux system administration and security skills, essential for building secure cloud data architectures, automating infrastructure tasks, and hardening systems against threats. Linux is the foundation of most cloud environments and security tools, and this knowledge directly enhances my ability to operate, secure, and automate at scale.
   <img width="600" height="300" alt="76f93a22fa675217f68c0dece2db16f2" src="https://github.com/user-attachments/assets/71a978d6-ec51-4909-bfd3-88d0af0fc7be" />
+  
+
+- **May 03, 2026**: ✅ **Completed Comprehensive NGINX Mastery (Installation, Configuration, Security, Load Balancing, and Ingress Controller)**
+    Gained deep, production-ready expertise in:
+    - NGINX Open Source and NGINX Plus installation on Linux, WSL, and cloud environments (AWS EC2, Azure VM)
+    - Core configuration (virtual servers, `location` blocks, `root`, `alias`, `try_files`)
+    - Reverse proxy and load balancing (Round Robin, Least Connections, IP Hash, Generic Hash, Least Time, Random)
+    - Security hardening (SSL/TLS termination, mTLS, rate limiting, JWT/OIDC authentication, dynamic denylisting with Keyval)
+    - Geoblocking with GeoIP2 and access control (Basic Auth, IP restriction)
+    - Dynamic modules (OpenTelemetry, Prometheus-njs, Lua, njs, Headers-More, Brotli)
+    - High-performance serving of static and compressed content (gzip, Brotli)
+    - Ingress Controller for Kubernetes (EKS) and traffic management (NLB, PROXY protocol)
+    - Logging, observability, and real-time metric exposition for security auditing and anomaly detection
+
+    > This mastery transforms NGINX into a strategic security layer and data gateway for my Cybersecurity Engineer pipeline: terminating SSL, authenticating clients (JWT/mTLS), load‑balancing resilient backends, blocking threats via rate limiting/geoIP, and emitting rich telemetry for detection and response.
+
+
 
 [👉**For more details of progress**](https://github.com/Duracuir96/cybersecurity-journey/tree/main/self-learning%20labs)
 
