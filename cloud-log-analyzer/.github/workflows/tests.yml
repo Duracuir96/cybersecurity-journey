@@ -33,7 +33,7 @@ jobs:
       # Step 4 — run unit tests only
       - name: Run unit tests
         run: |
-          pytest src/tests/unit/ -v --tb=short
+          pytest tests/unit/ -v --tb=short
 
   integration-tests:
     name: Integration Tests
@@ -58,4 +58,4 @@ jobs:
       # Step 4 — run integration tests only
       - name: Run integration tests
         run: |
-          pytest src/tests/integration/ -v --tb=short
+          pytest tests/integration/ -v --tb=short
