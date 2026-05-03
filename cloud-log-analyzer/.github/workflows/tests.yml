@@ -1,0 +1,61 @@
+# .github/workflows/tests.yml
+
+name: CI — Cloud Log Analyzer
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  unit-tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1 — checkout the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2 — install Python 3.9
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      # Step 3 — install all dependencies
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      # Step 4 — run unit tests only
+      - name: Run unit tests
+        run: |
+          pytest src/tests/unit/ -v --tb=short
+
+  integration-tests:
+    name: Integration Tests
+    runs-on: ubuntu-latest
+
+    # Integration tests run only after unit tests pass
+    needs: unit-tests
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install pytest pandas boto3 botocore
+
+      # Step 4 — run integration tests only
+      - name: Run integration tests
+        run: |
+          pytest src/tests/integration/ -v --tb=short
