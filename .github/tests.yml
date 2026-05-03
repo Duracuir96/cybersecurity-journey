@@ -5,14 +5,23 @@ name: CI — Cloud Log Analyzer
 on:
   push:
     branches: [ main, develop ]
+    paths:
+      - 'cloud-log-analyzer/**' 
   pull_request:
     branches: [ main ]
+    paths:
+      - 'cloud-log-analyzer/**' 
+
 
 jobs:
 
   unit-tests:
     name: Unit Tests
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: cloud-log-analyzer
 
     steps:
       # Step 1 — checkout the code from the repository
@@ -41,6 +50,10 @@ jobs:
 
     # Integration tests run only after unit tests pass
     needs: unit-tests
+
+    defaults:
+      run:
+        working-directory: cloud-log-analyzer
 
     steps:
       - name: Checkout code
