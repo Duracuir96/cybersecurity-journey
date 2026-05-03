@@ -61,5 +61,52 @@ pip install -r requirements.txt
   streamlit run src/dashboard.py
   ```
 ### Progress 
-- create IAM user ✅
-- ![Configured AWS CloudTrail to capture and retrieve AWS account activity logs✅](cloud-log-analyzer/Docs/Assets/imagev.png)
+
+#### 🛠️ AWS Setup
+
+* Create IAM user with programmatic access ✅
+* Configure IAM permissions for CloudTrail access ✅
+* Create S3 bucket to store CloudTrail logs ✅
+* Enable CloudTrail logging and configure it to send logs to S3 ✅
+
+#### Data Generation (Security Testing)
+
+* Perform regular penetration testing activities to generate realistic logs (e.g., failed logins, IAM actions) ✅
+
+---
+
+#### Application Development (Layered Architecture)
+
+##### 🔹 Layer 1 – Data Collection
+
+* Design the data collection layer (`aws_connector`) ✅
+* Load CloudTrail logs from a local JSON file (simulation phase) ✅
+* Extract raw events (`Records`) into Python structures (`list[dict]`) ✅
+
+##### 🔹 Layer 2 – Parsing & Normalization
+
+* Create a parser to transform raw CloudTrail events into a simplified structure ✅
+* Extract key fields:
+
+  * event name
+  * timestamp
+  * source IP
+  * user identity
+* Ensure consistent and flat data format for downstream processing ✅
+
+##### 🔹 Layer 3 – Data Validation
+
+* Implement validation logic to ensure data quality ✅
+* Define required fields (event_name, event_time, ip_address) ✅
+* Filter out incomplete or corrupted events ✅
+
+---
+
+#### ⏭️ Next Steps
+
+* Implement **Layer 4 – Security Analysis (Heuristics)** ⏳
+* Detect suspicious behaviors (failed logins, IAM changes, anomalies)
+* Build initial detection rules
+
+---
+
