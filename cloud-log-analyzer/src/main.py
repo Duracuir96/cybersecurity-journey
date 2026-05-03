@@ -3,6 +3,8 @@ from data_collection.aws_connector import AWSConnector
 from data_processing.log_parser import LogParser
 from datetime import datetime, timedelta
 from data_processing.data_validator import DataValidator
+from analysis.heuristic_engine import HeuristicEngine
+
 connector = AWSConnector()
 
         # Layer 1 - collect
@@ -52,3 +54,19 @@ if is_valid:
     print(df.head())
 else:
     print("[STOP] invalid DataFrame -check the parser")
+
+     # layer 4 - analyze 
+
+engine = HeuristicEngine()
+
+print("\n── Failed Login Attempts ────────────────")
+failed_logins = engine.detect_failed_logins(df, threshold=3)
+print(failed_logins if not failed_logins.empty else "No suspicious logins detected")
+
+print("\n── Dangerous IAM Changes ────────────────")
+iam_changes = engine.detect_iam_changes(df)
+print(iam_changes if not iam_changes.empty else "No IAM changes detected")
+
+print("\n── High Volume API Callers ──────────────")
+api_calls = engine.count_api_calls_by_ip(df, threshold=10)
+print(api_calls if not api_calls.empty else "No high volume IPs detected")

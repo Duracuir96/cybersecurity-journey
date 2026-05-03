@@ -6,6 +6,7 @@ import pandas as pd
 from src.data_collection.aws_connector import AWSConnector
 from src.data_processing.log_parser import LogParser
 from src.data_processing.data_validator import DataValidator
+from src.analysis.heuristic_engine import HeuristicEngine
 
 
 # ─── Fixtures ────────────────────────────────────────────────
@@ -38,8 +39,8 @@ def valid_cloudtrail_file(tmp_path):
                 "eventTime":       "2026-01-25T10:00:00Z"
             },
             {
-                "eventName":       "CreateUser",
-                "eventSource":     "iam.amazonaws.com",
+                "eventName":       "GetBucketAcl",
+                "eventSource":     "s3.amazonaws.com",
                 "sourceIPAddress": "5.6.7.8",
                 "userIdentity":    {"type": "IAMUser", "userName": "bob"},
                 "eventTime":       "2026-01-25T11:00:00Z"
@@ -360,3 +361,202 @@ class TestFullPipeline:
         assert cleaned_df.iloc[0]["eventName"] == "ConsoleLogin"
         assert cleaned_df.iloc[0]["userName"] == "alice"
         assert cleaned_df.iloc[0]["sourceIPAddress"] == "1.2.3.4"
+
+
+
+# ─── Fixture ─────────────────────────────────────────────────
+
+@pytest.fixture
+def engine():
+    """Returns a fresh HeuristicEngine instance"""
+    return HeuristicEngine()
+
+@pytest.fixture
+def cloudtrail_file_with_suspicious_activity(tmp_path):
+    """
+    CloudTrail file containing:
+    - 4 ConsoleLogin from same IP  → brute force
+    - 2 dangerous IAM events       → privilege escalation
+    - 12 API calls from one IP     → scanner
+    """
+    high_volume_calls = [
+        {
+            "eventName":       "DescribeInstances",
+            "eventSource":     "ec2.amazonaws.com",
+            "sourceIPAddress": "9.9.9.9",
+            "userIdentity":    {"type": "IAMUser", "userName": "scanner"},
+            "eventTime": f"2026-01-25T12:{i:02d}:00Z"
+        }
+        for i in range(12)  
+    ]
+
+
+    data = {
+        "Records": [
+            # Brute force attempts — 4 logins from same IP
+            {
+                "eventName":       "ConsoleLogin",
+                "eventSource":     "signin.amazonaws.com",
+                "sourceIPAddress": "1.2.3.4",
+                "userIdentity":    {"type": "IAMUser", "userName": "alice"},
+                "eventTime":       "2026-01-25T10:00:00Z"
+            },
+            {
+                "eventName":       "ConsoleLogin",
+                "eventSource":     "signin.amazonaws.com",
+                "sourceIPAddress": "1.2.3.4",
+                "userIdentity":    {"type": "IAMUser", "userName": "alice"},
+                "eventTime":       "2026-01-25T10:01:00Z"
+            },
+            {
+                "eventName":       "ConsoleLogin",
+                "eventSource":     "signin.amazonaws.com",
+                "sourceIPAddress": "1.2.3.4",
+                "userIdentity":    {"type": "IAMUser", "userName": "alice"},
+                "eventTime":       "2026-01-25T10:02:00Z"
+            },
+            {
+                "eventName":       "ConsoleLogin",
+                "eventSource":     "signin.amazonaws.com",
+                "sourceIPAddress": "1.2.3.4",
+                "userIdentity":    {"type": "IAMUser", "userName": "alice"},
+                "eventTime":       "2026-01-25T10:03:00Z"
+            },
+            # Dangerous IAM events
+            {
+                "eventName":       "CreateUser",
+                "eventSource":     "iam.amazonaws.com",
+                "sourceIPAddress": "5.6.7.8",
+                "userIdentity":    {"type": "IAMUser", "userName": "bob"},
+                "eventTime":       "2026-01-25T11:00:00Z"
+            },
+            {
+                "eventName":       "AttachUserPolicy",
+                "eventSource":     "iam.amazonaws.com",
+                "sourceIPAddress": "5.6.7.8",
+                "userIdentity":    {"type": "IAMUser", "userName": "bob"},
+                "eventTime":       "2026-01-25T11:01:00Z"
+            },
+            # High volume API calls — 12 calls from same IP
+            
+            *high_volume_calls  
+        ]
+    }
+    file = tmp_path / "suspicious_cloudtrail.json"
+    file.write_text(json.dumps(data))
+    return str(file)
+
+
+# ─── Tests : Layer 1 → 2 → 3 → 4 ────────────────────────────
+
+class TestFullPipelineWithHeuristics:
+
+    def test_pipeline_feeds_heuristic_engine(
+        self, connector, parser, validator, engine,
+        cloudtrail_file_with_suspicious_activity
+    ):
+        """Full pipeline output must be accepted by HeuristicEngine"""
+        # Arrange
+
+        # Act — Layers 1, 2, 3
+        raw_logs = connector.fetch_logs(
+            source="file",
+            file_path=cloudtrail_file_with_suspicious_activity
+        )
+        parsed = parser.parse_json(raw_logs)
+        df = parser.to_dataframe(parsed)
+        df = validator.clean_data(df)
+
+        # Act — Layer 4
+        failed_logins = engine.detect_failed_logins(df, threshold=3)
+        iam_changes   = engine.detect_iam_changes(df)
+        api_calls     = engine.count_api_calls_by_ip(df, threshold=10)
+
+        # Assert — all three return DataFrames without crash
+        assert isinstance(failed_logins, pd.DataFrame)
+        assert isinstance(iam_changes,   pd.DataFrame)
+        assert isinstance(api_calls,     pd.DataFrame)
+
+    def test_pipeline_detects_brute_force(
+        self, connector, parser, validator, engine,
+        cloudtrail_file_with_suspicious_activity
+    ):
+        """Pipeline must detect brute force IP end to end"""
+        # Arrange
+
+        # Act
+        raw_logs = connector.fetch_logs(
+            source="file",
+            file_path=cloudtrail_file_with_suspicious_activity
+        )
+        parsed  = parser.parse_json(raw_logs)
+        df      = parser.to_dataframe(parsed)
+        df      = validator.clean_data(df)
+        result  = engine.detect_failed_logins(df, threshold=3)
+
+        # Assert — 1.2.3.4 must be flagged
+        assert "1.2.3.4" in result["sourceIPAddress"].values
+
+    def test_pipeline_detects_iam_changes(
+        self, connector, parser, validator, engine,
+        cloudtrail_file_with_suspicious_activity
+    ):
+        """Pipeline must detect dangerous IAM events end to end"""
+        # Arrange
+
+        # Act
+        raw_logs = connector.fetch_logs(
+            source="file",
+            file_path=cloudtrail_file_with_suspicious_activity
+        )
+        parsed  = parser.parse_json(raw_logs)
+        df      = parser.to_dataframe(parsed)
+        df      = validator.clean_data(df)
+        result  = engine.detect_iam_changes(df)
+
+        # Assert — 2 dangerous IAM events detected
+        assert len(result) == 2
+        assert "CreateUser"       in result["eventName"].values
+        assert "AttachUserPolicy" in result["eventName"].values
+
+    def test_pipeline_detects_high_volume_ip(
+        self, connector, parser, validator, engine,
+        cloudtrail_file_with_suspicious_activity
+    ):
+        """Pipeline must detect high volume API caller end to end"""
+        # Arrange
+
+        # Act
+        raw_logs = connector.fetch_logs(
+            source="file",
+            file_path=cloudtrail_file_with_suspicious_activity
+        )
+        parsed  = parser.parse_json(raw_logs)
+        df      = parser.to_dataframe(parsed)
+        df      = validator.clean_data(df)
+        result  = engine.count_api_calls_by_ip(df, threshold=10)
+
+        # Assert — 9.9.9.9 must be flagged
+        assert "9.9.9.9" in result["sourceIPAddress"].values
+
+    def test_pipeline_clean_data_produces_no_detections(
+        self, connector, parser, validator, engine,
+        valid_cloudtrail_file
+    ):
+        """Pipeline with clean data must produce no suspicious detections"""
+        # Arrange — valid_cloudtrail_file has normal activity only
+
+        # Act
+        raw_logs = connector.fetch_logs(
+            source="file",
+            file_path=valid_cloudtrail_file
+        )
+        parsed       = parser.parse_json(raw_logs)
+        df           = parser.to_dataframe(parsed)
+        df           = validator.clean_data(df)
+        failed_logins = engine.detect_failed_logins(df, threshold=3)
+        iam_changes   = engine.detect_iam_changes(df)
+
+        # Assert — no threats detected in clean data
+        assert len(failed_logins) == 0
+        assert len(iam_changes)   == 0
