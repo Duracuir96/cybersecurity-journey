@@ -175,6 +175,26 @@ Absolument ! Voici votre journal de progression mis à jour avec l'ajout demand�
 
     > This mastery transforms NGINX into a strategic security layer and data gateway for my Cybersecurity Engineer pipeline: terminating SSL, authenticating clients (JWT/mTLS), load‑balancing resilient backends, blocking threats via rate limiting/geoIP, and emitting rich telemetry for detection and response.
 
+- **May 16, 2026**: ✅ **Completed Comprehensive Bash Scripting Mastery Course**
+    Acquired deep expertise in:
+    - Command-line fundamentals (commands, arguments, word splitting, quoting)
+    - Variables, arrays (indexed and associative), and parameter expansions
+    - Shell expansions (brace, glob, extended glob, regex)
+    - Conditionals and loops (`if`, `case`, `for`, `while`, `until`)
+    - Functions, scoping (local variables), and return values
+    - Standard streams (stdin, stdout, stderr) and redirections (`>`, `>>`, `<`, `2>`, `2>&1`)
+    - Pipes, pipelines, process substitution (`<()`), heredocs, and herestrings
+    - Job control (foreground, background, suspend, `fg`, `bg`, `jobs`, `disown`)
+    - Security automation patterns (log analysis, threat detection, response scripting)
+    - Debugging techniques (`set -x`, `set -euo pipefail`, `PS4`, `BASH_XTRACEFD`)
+    - Best practices: quoting rules, avoiding `ls` parsing, using `[[ ]]` vs `[ ]`, arithmetic with `(( ))`
+    - System monitoring integration (`ps`, `top`, `df`, `du`, `free`, `uptime`, `kill`)
+    - Network diagnostics (`ping`, `curl`, `wget`, `ssh`, `scp`, `rsync`)
+    - Text processing mastery (`grep`, `sed`, `awk`, `cut`, `sort`, `uniq`, `head`, `tail`)
+    - Archive management (`tar`, `zip`, `unzip`) and file permissions (`chmod`, `chown`, `chgrp`)
+
+    > This comprehensive Bash scripting mastery directly empowers my Cloud Security Data Engineer capabilities: automating log collection pipelines, implementing real-time threat detection scripts, orchestrating cloud CLI tools (AWS/Azure/GCP), building security audit automation, and creating resilient incident response playbooks — all within the shell environment that powers modern cloud infrastructures.
+
 
 
 [👉**For more details of progress**](https://github.com/Duracuir96/cybersecurity-journey/tree/main/self-learning%20labs)
