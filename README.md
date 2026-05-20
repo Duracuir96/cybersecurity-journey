@@ -195,6 +195,16 @@ Absolument ! Voici votre journal de progression mis à jour avec l'ajout demand�
 
     > This comprehensive Bash scripting mastery directly empowers my Cloud Security Data Engineer capabilities: automating log collection pipelines, implementing real-time threat detection scripts, orchestrating cloud CLI tools (AWS/Azure/GCP), building security audit automation, and creating resilient incident response playbooks — all within the shell environment that powers modern cloud infrastructures.
 
+- **May 20, 2026**: ✅ **Completed Mastery of Apache Airflow**
+    Acquired in-depth, production-grade expertise in Apache Airflow, specifically applied to cloud security use cases, including:
+    - **Architecture & Deployment:** Mastered core components (Scheduler, Webserver, DAG Processor, Triggerer, Metadata DB), high-availability deployments (Celery/Kubernetes Executors), and infrastructure-as-code via Docker Compose and Helm Charts.
+    - **DAG Design & Engineering:** Developed best-practice skills for writing idempotent, dynamic, and maintainable DAGs, including advanced control flow (branching, trigger rules), Jinja templating, TaskFlow API, and dynamic task mapping.
+    - **Security & Governance:** Implemented robust security models (JWT authentication, multi-team isolation), managed connections and variables via secrets backends (Hashicorp Vault, AWS SM), and enforced cluster policies and audit trails with listeners.
+    - **Production Hardening & Automation:** Automated Airflow operations (CLI, REST API), configured remote logging (S3/GCS), optimized scheduler/DAG processor performance, tuned pools for resource isolation, and debugged complex workflows using CLI commands and the web UI.
+    - **Event-Driven & Scalable Architectures:** Implemented asset-based scheduling, deferrable operators with triggers, and integrated containerized task execution using `@task.docker` and `@task.kubernetes`.
+    - **Professional Development:** Successfully completed an exhaustive, structured training series covering over 15 comprehensive modules, from foundational concepts to advanced security and deployment strategies.
+
+    > This mastery bridges a critical gap in my **CyberSecurity Engineer** profile, enabling me to design, secure, and orchestrate complex, event-driven data pipelines. It directly supports the automation and reliability of cloud security monitoring, threat detection, and incident response workflows.
 
 
 [👉**For more details of progress**](https://github.com/Duracuir96/cybersecurity-journey/tree/main/self-learning%20labs)
