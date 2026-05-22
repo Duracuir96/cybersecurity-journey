@@ -207,6 +207,34 @@ Absolument ! Voici votre journal de progression mis à jour avec l'ajout demand�
     > This mastery bridges a critical gap in my **CyberSecurity Engineer** profile, enabling me to design, secure, and orchestrate complex, event-driven data pipelines. It directly supports the automation and reliability of cloud security monitoring, threat detection, and incident response workflows.
 
 
+- **May 22, 2026**: ✅ **Completed Comprehensive Kubernetes Mastery Track**
+    Acquired deep understanding of:
+    - Kubernetes architecture (Control Plane, Worker Nodes, etcd, kubelet, kube-proxy)
+    - Pods, Deployments, ReplicaSets, DaemonSets, StatefulSets, Jobs, CronJobs
+    - Services and Ingress (ClusterIP, NodePort, LoadBalancer, ExternalName)
+    - ConfigMaps, Secrets, and security contexts
+    - Pod Security Standards (PSS) and Pod Security Admission (PSA)
+    - Network Policies for micro-segmentation
+    - Authentication and authorization (RBAC, ABAC, OIDC, Service Accounts)
+    - Helm package manager and Charts
+    - Resource management (requests, limits, QoS classes)
+    - Autoscaling (HPA, VPA, Cluster Autoscaler)
+    - Probes (Liveness, Readiness, Startup)
+    - Observability (Metrics Server, Prometheus, Grafana, OpenTelemetry)
+    - Logging architecture (node-level agent, sidecar, EFK/Loki stack)
+    - Audit policies for compliance and security tracing
+    - Troubleshooting and debugging (ephemeral containers, kubectl exec, node debugging)
+    - Custom Resource Definitions (CRDs) and operators
+    - Deployment strategies (RollingUpdate, Recreate, Canary, Blue/Green)
+    - Persistent volumes and dynamic provisioning
+    - Quotas and limit ranges
+    - Multi-tenancy and node isolation
+    - **Certification pathways**: KCNA, CKA, CKAD, CKS
+
+    > This knowledge directly strengthens my ability to orchestrate containerized workloads, design secure cloud-native architectures, implement least-privilege access controls, and enforce security policies across the entire application lifecycle — from build to runtime.
+<img width="600" height="300" alt="9ba2c49a030e7cc7dfee34da1317e28e" src="https://github.com/user-attachments/assets/3e228c42-6867-4499-a5f6-7a8bf91493eb" />
+
+
 [👉**For more details of progress**](https://github.com/Duracuir96/cybersecurity-journey/tree/main/self-learning%20labs)
 
 ---
