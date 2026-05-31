@@ -51,6 +51,8 @@ class LogParser:
                 "sourceIPAddress", "userName"
             ])
 
-        df["eventTime"] = pd.to_datetime(df["eventTime"])
+       # Convert eventTime to datetime, coerce errors to NaT instead of crashing
+        if "eventTime" in df.columns:
+            df["eventTime"] = pd.to_datetime(df["eventTime"], errors='coerce')
 
-        return df 
+        return df

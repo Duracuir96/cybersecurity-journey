@@ -1,103 +1,107 @@
 # src/analysis/heuristic_engine.py
 
-import pandas as pd 
+import pandas as pd
+from .detectors.iam_detector import IAMDetector
+from .detectors.s3_detector import S3Detector
+from .detectors.ec2_detector import EC2Detector
+from .detectors.network_detector import NetworkDetector
+from .detectors.lambda_detector import LambdaDetector
+
 
 class HeuristicEngine:
-    # IAM event names considered dangerous
+    """
+    Facade orchestrating all security detectors.
+    Single entry point for the rest of the application.
+    Aggregates results from all specialized detectors.
+    """
 
-    IAM_DANGEROUS_EVENTS =[
-        "CreateUser",
-        "DeleteUser",
-        "AttachUserPolicy",
-        "DetachUserPolicy",
-        "CreateAccessKey",
-        "DeleteAccessKey",
-        "PutUserPolicy",
-        "DeleteUserPolicy"   
-    ]
+    def __init__(self):
+        # Each detector handles its own domain
+        self.iam     = IAMDetector()
+        self.s3      = S3Detector()
+        self.ec2     = EC2Detector()
+        self.network = NetworkDetector()
+        self.lambda_ = LambdaDetector()
 
-    def detect_failed_logins(self, df, threshold = 3):
+    # ─── IAM detections ──────────────────────────────────────
+
+    def detect_failed_logins(self, df, threshold=3):
+        """Delegates to IAMDetector"""
+        return self.iam.detect_failed_logins(df, threshold)
+
+    def detect_iam_changes(self, df):
+        """Delegates to IAMDetector"""
+        return self.iam.detect_iam_changes(df)
+
+    def detect_iam_enumeration(self, df, threshold=3):
+        """Delegates to IAMDetector"""
+        return self.iam.detect_iam_enumeration(df, threshold)
+
+    def detect_credential_abuse(self, df, ip_threshold=2):
+        """Delegates to IAMDetector"""
+        return self.iam.detect_credential_abuse(df, ip_threshold)
+
+    def detect_role_chaining(self, df, threshold=3):
+        """Delegates to IAMDetector"""
+        return self.iam.detect_role_chaining(df, threshold)
+
+    def count_api_calls_by_ip(self, df, threshold=10):
+        """Delegates to IAMDetector"""
+        return self.iam.count_api_calls_by_ip(df, threshold)
+
+    # ─── S3 detections ───────────────────────────────────────
+
+    def detect_s3_exfiltration(self, df, threshold=5):
+        """Delegates to S3Detector"""
+        return self.s3.detect_s3_exfiltration(df, threshold)
+
+    # ─── EC2 detections ──────────────────────────────────────
+
+    def detect_ec2_suspicious_activity(self, df):
+        """Delegates to EC2Detector"""
+        return self.ec2.detect_ec2_suspicious_activity(df)
+
+    # ─── Network detections ──────────────────────────────────
+
+    def detect_data_exfiltration(self, df):
+        """Delegates to NetworkDetector"""
+        return self.network.detect_data_exfiltration(df)
+
+    def detect_critical_events(self, df):
+        """Delegates to NetworkDetector"""
+        return self.network.detect_critical_events(df)
+
+    # ─── Lambda detections ───────────────────────────────────
+
+    def detect_lambda_abuse(self, df):
+        """Delegates to LambdaDetector"""
+        return self.lambda_.detect_lambda_abuse(df)
+
+    # ─── Master method ───────────────────────────────────────
+
+    def run_all_detections(self, df):
         """
-        Detects suspicious IPs that attempted ConsoleLogin
-        more than threshold times
+        Runs all detectors and returns a consolidated summary.
+        Single call to get the full security picture.
 
-        Input: clean DataFrame from DataValidator 
-        Output: DataFrame with suspicious IPs and their login count 
-
+        Input  : clean DataFrame from DataValidator
+        Output : dict with all detection results
         """
-        if df.empty:
-            return pd.DataFrame(columns =["sourceIPAddress", "login_count"])
-        
-        # step 1 - keep only ConsoleLogin events 
-
-        logins = df[df["eventName"] == "ConsoleLogin"]
-
-        if logins.empty:
-            return pd.DataFrame(columns = ["sourceIPAddress", "login_count"])
-        
-        # step 2 - count how many times each IP attempted login
-
-        counts = (
-            logins
-            .groupby("sourceIPAddress")
-            .size()
-            .reset_index(name = "login_count")
-        )
-
-        # step 3 - keep only IPs above the threshold 
-
-        suspicious = counts[counts["login_count"] >= threshold]
-
-        # step 4 - sort from most attempts to least 
-
-        suspicious = suspicious.sort_values("login_count", ascending =False)
-        return suspicious.reset_index(drop = True)
-
-    def detect_iam_changes(self,df):
-        """
-        detects dangerous IAM modifications events.
-        Any event in IAM_DANGEROUS_EVENTS is suspicious by definition
-
-        Input : clean DataFrame from DataValidator 
-        Output : DataFrame with all dangerous IAM events found 
-
-        """
-        if df.empty:
-            return pd.DataFrame(columns = df.columns)
-        
-        # Filter rows where eventName is a known dangerous IAM action
-
-        iam_events = df[df["eventName"].isin(self.IAM_DANGEROUS_EVENTS)]
-
-        return iam_events.reset_index(drop=True)
-
-    def count_api_calls_by_ip(self, df , threshold= 10):
-        """
-        Counts total API calls per IP address
-        Returns IPs that exceed the threshold - potential scanners or attackers 
-
-        Input: clean DataFrame from DataValidator
-        Output: DataFrame with IP addresses and their total call count 
-
-        """
-        if df.empty:
-            return pd.DataFrame(columns= ["sourceIPAddress", "call_count"])
-        
-        # step 1 - count all events per IP
-
-        counts = (
-            df
-            .groupby("sourceIPAddress")
-            .size()
-            .reset_index(name="call_count")
-        )
-
-        # step 2 -- keep only IPs above the threshold
-
-        suspicious = counts[counts["call_count"] >= threshold]
-
-        # step 3 - sort from most calls to least 
-
-        suspicious = suspicious.sort_values("call_count", ascending = False)
-
-        return suspicious.reset_index(drop = True)
+        return {
+            # IAM
+            "failed_logins":      self.detect_failed_logins(df),
+            "iam_changes":        self.detect_iam_changes(df),
+            "iam_enumeration":    self.detect_iam_enumeration(df),
+            "credential_abuse":   self.detect_credential_abuse(df),
+            "role_chaining":      self.detect_role_chaining(df),
+            "api_calls_by_ip":    self.count_api_calls_by_ip(df),
+            # S3
+            "s3_exfiltration":    self.detect_s3_exfiltration(df),
+            # EC2
+            "ec2_suspicious":     self.detect_ec2_suspicious_activity(df),
+            # Network
+            "data_exfiltration":  self.detect_data_exfiltration(df),
+            "critical_events":    self.detect_critical_events(df),
+            # Lambda
+            "lambda_abuse":       self.detect_lambda_abuse(df)
+        }

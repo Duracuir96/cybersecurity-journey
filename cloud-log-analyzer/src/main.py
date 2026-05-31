@@ -57,16 +57,13 @@ else:
 
      # layer 4 - analyze 
 
+# Layer 4 — analyze
 engine = HeuristicEngine()
+results = engine.run_all_detections(df)
 
-print("\n── Failed Login Attempts ────────────────")
-failed_logins = engine.detect_failed_logins(df, threshold=3)
-print(failed_logins if not failed_logins.empty else "No suspicious logins detected")
-
-print("\n── Dangerous IAM Changes ────────────────")
-iam_changes = engine.detect_iam_changes(df)
-print(iam_changes if not iam_changes.empty else "No IAM changes detected")
-
-print("\n── High Volume API Callers -──────────────")
-api_calls = engine.count_api_calls_by_ip(df, threshold=10)
-print(api_calls if not api_calls.empty else "No high volume IPs detected")
+for detection_name, result_df in results.items():
+    print(f"\n── {detection_name} ────────────────")
+    if not result_df.empty:
+        print(result_df)
+    else:
+        print("No threats detected")
