@@ -30,10 +30,75 @@ This repository will contain projects and notes from my learning path.
 
 ## 📈 Progress
 
--   **September 7, 2025 :** Created this repository and defined my learning roadmap.
+-   **September 7, 2025 :** Created this repository and defined my learning roadmap
+- **October 30, 2025**: ✅ **Mastered Python Core & Advanced Programming**
+    Acquired comprehensive Python proficiency essential for data engineering and cybersecurity automation:
+    - **Python Basics & Functions**: control flow, loops, modular programming
+    - **Python Data Structures**: lists, tuples, dictionaries, sets, comprehensions
+    - **Object-Oriented Programming (OOP)**: classes, inheritance, polymorphism, encapsulation
+    - **File & Error Handling**: exception management, file I/O operations
+    - **Package & Virtual Environment Management**: pip, venv, conda, dependency isolation
+    - **Type Hinting**: static typing for robust, maintainable code
+    - **Regular Expressions (Regex)**: pattern matching for log analysis and data extraction
+    - **Network Programming**: sockets, HTTP clients/servers, API communication
+    - **Asynchronous Programming**: async/await, concurrency for high-performance I/O
+    - **Web Scraping**: BeautifulSoup, Scrapy for security intelligence gathering
+    - **Testing with Pytest**: unit tests, fixtures, mocking for reliable deployments
+
+- **June 2, 2026**: ✅ **Completed Machine Learning Systems in Production Mastery**
+    Gained deep understanding of:
+    - When to use (and not use) Machine Learning in production environments
+    - ML use cases across consumer and enterprise applications
+    - The Mind vs Data debate in ML research and industry
+    - Key differences between ML in research vs ML in production
+    - ML systems vs traditional software engineering
+    - ML system design requirements (reliability, scalability, maintainability, adaptability)
+    - Iterative ML development process (project scoping → data engineering → model development → deployment → monitoring → business analysis)
+
+    > This knowledge bridges the critical gap between statistical model development and production-ready ML systems - essential for deploying **Cloud Security Analytics** where models must be reliable, scalable, and continuously adaptive to evolving threat patterns. Understanding production ML constraints (latency, throughput, data shifts, fairness, interpretability) directly applies to building security systems that detect anomalies at scale without overwhelming SOC analysts.
+
 -   **October 31, 2025 :** Mastered IT infrastructure fundamentals through **✅CompTIA A+ Core 1 training (hardware, networking, virtualization.)**- directly applicable to optimizing my security projects.
 -   **November 1, 2025:** **✅ Completed AWS Cloud Practitioner Certification** - Mastered cloud concepts, AWS services, security, architecture pillars , pricing, and support.
   <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/fba24328-13b5-4355-8e2e-d35be7f78f0b" />
+  
+  -   **December 28, 2025**: ✅ **Completed Comprehensive Linear Algebra Mastery Track**
+    Acquired deep mathematical foundations essential for data engineering and cybersecurity:
+    - **Vector fundamentals**: creation, operations, norms, broadcasting
+    - **Dot product & orthogonality**: cosine similarity, orthogonal decomposition, projections
+    - **Linear independence & vector spaces**: span, subspaces, bases, dimension
+    - **Matrix operations**: multiplication, transpose, special matrices (identity, diagonal, triangular, symmetric)
+    - **Matrix factorizations**: LU, Cholesky, QR, Eigendecomposition, SVD
+    - **Norms & conditioning**: vector norms (L1, L2, L∞), matrix norms (Frobenius, spectral), condition number
+    - **Linear systems & least squares**: Gaussian elimination, back substitution, regularized regression (Ridge, Lasso, Elastic Net)
+    - **Dimensionality reduction & PCA**: variance explained, low-rank approximations, data compression
+    - **Anomaly detection**: subspace methods, reconstruction error, Mahalanobis distance
+    - **Practical implementation**: NumPy, SciPy, Scikit-learn integration for security analytics
+      
+      > This mathematical foundation directly powers my ability to build robust anomaly detection systems, optimize ML models for cybersecurity, and understand the linear algebra behind PCA, SVD, and least squares regression — all essential tools for the Cloud Security Data Engineer role.
+
+- **December 29, 2026**: ✅ **Mastered Pandas for Data Engineering**
+    Acquired complete proficiency in Pandas for security log analysis and data transformation:
+    - **Series & DataFrame**: core data structures for tabular data
+    - **Data I/O**: reading/writing CSV, Excel, JSON, Parquet, SQL databases
+    - **Data Operations**: filtering, sorting, grouping, merging, joining, reshaping
+    - **Advanced Operations**: window functions, rolling statistics, time series analysis
+    - **Data Cleaning**: handling missing values, duplicates, outliers, type conversion
+    - **Database Integration**: SQLAlchemy, direct database connectivity for security logs
+
+- **December 30, 2025**: ✅ **Mastered Core Python Data Science Libraries**
+    Acquired essential library proficiency for security analytics and machine learning:
+    - **NumPy**: n-dimensional arrays, vectorized operations, broadcasting, linear algebra foundations
+    - **SciPy**: advanced scientific computing, optimization, statistical functions
+    - **Matplotlib & Seaborn**: data visualization for security dashboards and anomaly detection
+    - **Plotly**: interactive visualizations for real-time security monitoring
+    - **Scikit-Learn**: machine learning pipelines, anomaly detection, classification, regression, clustering
+    - **Boto3**: AWS SDK for cloud security automation and infrastructure management
+    - **FastAPI**: modern, high-performance API development for security services
+    - **Streamlit**: rapid dashboard development for SOC analysts
+    - **JWT Authentication**: secure token-based authentication for API security
+    - **HTTPX**: asynchronous HTTP client for API integrations and security testing
+ 
+    > This complete Python ecosystem empowers me to build end-to-end security data pipelines, from log ingestion (Pandas) through mathematical analysis (NumPy/SciPy) to ML-powered threat detection (Scikit-learn) and visualization (Plotly/Streamlit).
 
 - **December 31, 2025**: Designed and implemented [SalesFlow-Lite](https://github.com/aws-samples/salesflow-lite), a cloud-ready, secure analytics and automation backend.
     - Built a **dual-backend architecture (Java + Python)** with a single authentication authority
@@ -74,6 +139,88 @@ This repository will contain projects and notes from my learning path.
   
     > This knowledge directly strengthens my ability to design secure, resilient cloud data architectures and understand the underlying network layers critical for cybersecurity.
 Absolument ! Voici votre journal de progression mis à jour avec l'ajout demandé, en respectant strictement le style et la structure des rubriques précédentes.
+
+- **Febraury 21, 2026**: ✅ **Completed Pre-ML Engineering Mastery Program**
+    Built a comprehensive, production-grade foundation in data engineering and machine learning fundamentals through an intensive, self-designed curriculum inspired by real-world cloud security challenges.
+
+    **Acquired deep expertise across the entire ML lifecycle:**
+
+    **Foundations & Lifecycle Management**
+    - Mastered the iterative ML lifecycle: problem definition, data collection, cleaning, EDA, feature engineering, model development, evaluation, deployment, and monitoring
+    - Understood why ML systems fail in production (natural labels, feedback loops, edge cases, degenerate feedback loops)
+    - Learned that 60% of ML production failures are software/system issues, not ML-specific
+
+    **Data Engineering Fundamentals**
+    - Data sources (user input, system-generated, internal DBs, third-party)
+    - Data formats (JSON, CSV, Parquet, Avro, Protobuf, Pickle) and trade-offs (row-major vs column-major, text vs binary)
+    - Data models: relational (SQL, normalization, declarative queries), document (NoSQL), and graph
+    - Structured vs unstructured data, data warehouses vs data lakes, ETL vs ELT, data lakehouse architectures
+    - Modes of dataflow: databases, services (REST/RPC), real-time transport (pubsub, message queue)
+    - Batch vs stream processing, static vs dynamic features
+
+    **Sampling, Labeling & Training Data Creation**
+    - Non-probability sampling (convenience, snowball, judgment, quota) and random sampling (simple, stratified, weighted)
+    - Advanced sampling: importance sampling and reservoir sampling (for streaming data)
+    - Labeling challenges: cost, privacy, lenteur, label multiplicity, data lineage
+    - Four techniques to handle lack of labels: weak supervision, semi-supervision, transfer learning, active learning
+
+    **Exploratory Data Analysis (EDA) & Statistical Mastery**
+    - Descriptive statistics: mean, median, mode, standard deviation, IQR
+    - Advanced statistics: skewness (asymmetry) and kurtosis (tail extremity) for distribution analysis
+    - Robust outlier detection using IQR method (Q1 - 1.5×IQR / Q3 + 1.5×IQR)
+    - Advanced visualizations: bar plots, stacked bar graphs, histograms with KDE, box plots, violin plots, correlation heatmaps
+    - Time series analysis: trend, seasonality, moving average, differencing, stationarity (ADF test), autocorrelation
+
+    **Data Cleaning & Preprocessing**
+    - Handling missing values: MNAR, MAR, MCAR types; deletion vs imputation strategies
+    - Outlier detection and treatment (IQR, Z-score, capping)
+    - Feature scaling: Absolute Maximum, Min-Max, Normalizer L2, Standardization (Z-score), Robust Scaling (for security data with outliers)
+    - Log transformation for skewed distributions
+    - Encoding categorical features: One-Hot, Label, Frequency Encoding, and Hashing Trick (for dynamic categories)
+    - Class imbalance handling: appropriate metrics (F1, Precision-Recall, AUC), resampling (SMOTE, undersampling), cost-sensitive learning, focal loss
+
+    **Feature Engineering**
+    - Learned features (deep learning) vs engineered features (domain expertise)
+    - Feature splitting (IP addresses, timestamps, addresses)
+    - Text preprocessing: TF-IDF for security logs
+    - Feature crossing for non-linear relationships
+    - Feature extraction: PCA, Fourier Transform, positional embeddings
+    - Data leakage: 6 causes (temporal split, scaling before split, imputation with test stats, duplication, group leakage, collection process leakage) and detection methods
+    - Feature selection: Filter (correlation, chi2, mutual info), Wrapper (RFE), Embedded (Lasso, Random Forest)
+    - Feature importance with SHAP, feature generalization (coverage, distribution overlap)
+
+    **Model Development & Offline Evaluation**
+    - Framing ML problems: classification vs regression, binary/multiclass/multilabel, high cardinality, hierarchical classification
+    - Model selection: 6 tips (avoid SOTA trap, start simple, avoid human bias, evaluate now vs later, trade-offs, understand assumptions)
+    - Ensembles: bagging (Random Forest), boosting (GBM, XGBoost, LightGBM), stacking
+    - Experiment tracking and versioning, debugging techniques (overfit single batch, set random seed)
+    - Distributed training: data parallelism (synchronous/asynchronous, straggler problem), model parallelism, pipeline parallelism
+    - AutoML: hyperparameter tuning (GridSearch, RandomizedSearch, Bayesian Optimization), Neural Architecture Search (NAS)
+    - Evaluation baselines: random, heuristic, zero-rule, human, existing solutions
+    - Evaluation methods: perturbation tests (robustness), invariance tests (fairness), directional expectation tests, model calibration (Platt scaling), confidence measurement, slice-based evaluation (Simpson's paradox)
+    - Cross-validation: Holdout, LOOCV, K-Fold, Stratified K-Fold (for imbalanced data), TimeSeries Split, Nested Cross-Validation
+
+    **Model Deployment & Production**
+    - Myths of ML deployment (many models, performance decays, frequent updates, scale matters)
+    - Batch prediction vs online prediction (synchronous/asynchronous)
+    - Batch features vs streaming features
+    - Model compression: low-rank factorization (MobileNets), knowledge distillation (DistilBERT), pruning, quantization (half precision, fixed-point, binary)
+    - Cloud vs edge computing: trade-offs (cost, latency, privacy, battery)
+    - Compilation and optimization: Intermediate Representations (IR), lowering, vectorization, parallelization, loop tiling, operator fusion
+    - ML to optimize ML: autoTVM, cuDNN autotune
+    - WebAssembly (WASM) for browser-based ML (93% device coverage, 45-55% slower than native)
+
+    **Why ML Systems Fail in Production**
+    - Natural labels and feedback loop length (short vs long)
+    - Software system failures (dependencies, deployment, hardware, downtime) - 60% of Google's 96 failures
+    - ML-specific failures (data distribution shifts, edge cases, degenerate feedback loops)
+    - Edge cases vs outliers (data vs performance)
+    - Degenerate feedback loops: detection (popularity bias, hit rate vs popularity) and correction (randomization, positional features)
+
+    > This comprehensive program bridges the critical gap between theoretical ML knowledge and production-ready engineering skills. I am now equipped to design, deploy, monitor, and maintain ML systems in production environments with security, scalability, and reliability as first-class concerns.
+
+
+    
 
 - **March 13, 2026**: ✅ **Completed Comprehensive DevOps and Site Reliability Engineering (SRE) Mastery**
     Acquired deep understanding of:
