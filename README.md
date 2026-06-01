@@ -64,6 +64,19 @@ This repository will contain projects and notes from my learning path.
       
       > This mathematical foundation directly powers my ability to build robust anomaly detection systems, optimize ML models for cybersecurity, and understand the linear algebra behind PCA, SVD, and least squares regression — all essential tools for the Cloud Security Data Engineer role.
 
+- **December 28, 2025**: ✅ **Completed Comprehensive Statistics and Probability Mastery for Data Science**
+    Acquired deep expertise across 8 intensive courses covering:
+    - **Course 1:** Data types (qualitative/quantitative, discrete/continuous), measurement levels (Nominal/Ordinal/Interval/Ratio), rectangular data structures, data frames
+    - **Course 2:** Measures of central tendency (mean, median, mode, weighted mean, trimmed mean, expected value), robustness to outliers
+    - **Course 3:** Measures of dispersion (variance, standard deviation, MAD, IQR, percentiles, z-scores), box plots, empirical rule
+    - **Course 4:** Distributions (frequency tables, histograms, density plots, bar charts, pie charts, scatter plots), distribution shapes (uniform, symmetrical, skewed), kurtosis, outliers
+    - **Course 5:** Bivariate relationships (covariance, Pearson/Spearman correlation, correlation matrices), correlation ≠ causation
+    - **Course 6:** Multivariate analysis (contingency tables, chi-square test, grouped box plots, violin plots, hexagonal binning, contour plots, facetting, heatmaps)
+    - **Course 7:** Statistical study process (design, collection, organization, analysis), sampling methods (simple random, stratified, cluster, systematic, convenience), experimental design (randomization, control, replication, blinding, IRB ethics)
+    - **Course 8:** Statistical inference, CLT, sampling distributions, confidence intervals, bootstrap, hypothesis testing (t-tests, p-values, Type I/II errors, ANOVA), parameter estimation (MLE, method of moments, bias, Cramer-Rao bound)
+
+    > This comprehensive mastery bridges **probability theory, statistical inference, and real-world data analysis** - critical capabilities for **Cloud Security Data Engineering** where detecting anomalies, quantifying risk, and making data-driven security decisions require rigorous statistical thinking. From calibrating intrusion detection systems with Bayes' theorem to establishing dynamic alert thresholds with confidence intervals, this foundation transforms raw cloud telemetry into actionable security intelligence.
+
 - **December 29, 2026**: ✅ **Mastered Pandas for Data Engineering**
     Acquired complete proficiency in Pandas for security log analysis and data transformation:
     - **Series & DataFrame**: core data structures for tabular data
