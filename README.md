@@ -45,18 +45,6 @@ This repository will contain projects and notes from my learning path.
     - **Web Scraping**: BeautifulSoup, Scrapy for security intelligence gathering
     - **Testing with Pytest**: unit tests, fixtures, mocking for reliable deployments
 
-- **June 2, 2026**: ✅ **Completed Machine Learning Systems in Production Mastery**
-    Gained deep understanding of:
-    - When to use (and not use) Machine Learning in production environments
-    - ML use cases across consumer and enterprise applications
-    - The Mind vs Data debate in ML research and industry
-    - Key differences between ML in research vs ML in production
-    - ML systems vs traditional software engineering
-    - ML system design requirements (reliability, scalability, maintainability, adaptability)
-    - Iterative ML development process (project scoping → data engineering → model development → deployment → monitoring → business analysis)
-
-    > This knowledge bridges the critical gap between statistical model development and production-ready ML systems - essential for deploying **Cloud Security Analytics** where models must be reliable, scalable, and continuously adaptive to evolving threat patterns. Understanding production ML constraints (latency, throughput, data shifts, fairness, interpretability) directly applies to building security systems that detect anomalies at scale without overwhelming SOC analysts.
-
 -   **October 31, 2025 :** Mastered IT infrastructure fundamentals through **✅CompTIA A+ Core 1 training (hardware, networking, virtualization.)**- directly applicable to optimizing my security projects.
 -   **November 1, 2025:** **✅ Completed AWS Cloud Practitioner Certification** - Mastered cloud concepts, AWS services, security, architecture pillars , pricing, and support.
   <img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/fba24328-13b5-4355-8e2e-d35be7f78f0b" />
