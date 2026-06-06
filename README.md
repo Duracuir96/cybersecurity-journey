@@ -382,6 +382,19 @@ Absolument ! Voici votre journal de progression mis à jour avec l'ajout demand�
     > This knowledge directly strengthens my ability to orchestrate containerized workloads, design secure cloud-native architectures, implement least-privilege access controls, and enforce security policies across the entire application lifecycle — from build to runtime.
 <img width="600" height="300" alt="9ba2c49a030e7cc7dfee34da1317e28e" src="https://github.com/user-attachments/assets/3e228c42-6867-4499-a5f6-7a8bf91493eb" />
 
+- **June 5, 2026**: ✅ **Completed Comprehensive Windows Operating System Fundamentals Mastery**
+    Acquired deep understanding of:
+    - **System Architecture** (processes, threads, services, registry)
+    - **File Systems** (NTFS, FAT32, exFAT, permissions, ADS, MFT)
+    - **Security Mechanisms** (SID, UAC, ACL, AppLocker, Defender, Firewall, BitLocker)
+    - **User & Group Management** (local accounts, security groups, RBAC, delegation)
+    - **Network & Sharing** (SMB, RDP, shares, firewall rules, port management)
+    - **Configuration & Automation** (PowerShell, WMI/CIM, GPO, MSConfig, Task Scheduler)
+    - **Monitoring & Diagnostics** (Event Viewer, Resource Monitor, Performance Monitor)
+    - **Cloud Integration** (WSL, Azure AD, Windows on cloud VMs)
+    - **Disaster Recovery** (VSS, restore points, backup strategies, crash dumps)
+
+    > This mastery equips me with a rock-solid foundation to harden Windows endpoints, investigate security incidents on Windows systems, design secure multi-platform cloud data architectures, and bridge traditional Windows infrastructure with modern cloud-native security practices — a critical asset for any Cloud Security Data Engineer navigating hybrid enterprise environments.
 
 [👉**For more details of progress**](https://github.com/Duracuir96/cybersecurity-journey/tree/main/self-learning%20labs)
 
