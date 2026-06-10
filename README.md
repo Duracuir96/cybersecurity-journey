@@ -396,6 +396,39 @@ Absolument ! Voici votre journal de progression mis à jour avec l'ajout demand�
 
     > This mastery equips me with a rock-solid foundation to harden Windows endpoints, investigate security incidents on Windows systems, design secure multi-platform cloud data architectures, and bridge traditional Windows infrastructure with modern cloud-native security practices — a critical asset for any Cloud Security Data Engineer navigating hybrid enterprise environments.
 
+- **June 11, 2026**: ✅ **Completed Comprehensive DVC (Data Version Control) Training (22 courses)**
+    Mastered end-to-end data versioning, pipeline automation, and experiment management for Machine Learning and Security Data Engineering, including:
+    - **DVC fundamentals** : versioning large datasets and models (reproducibility, caching, .dvc files)
+    - **Remote storage & synchronization** : configuring S3/Azure remotes, dvc push/pull/fetch/get/import
+    - **Pipelines & automation** : dvc.yaml, dvc repro, dvc dag, templating, foreach/matrix stages, run cache
+    - **Experiment management** : dvc exp run, grid search, queuing, parallel execution, dvc exp show/diff/apply/branch
+    - **Advanced DVCLive** : logging metrics, parameters, artifacts, images, sklearn plots, next_step, make_report
+    - **VS Code extension** : experiments table, live plots, modify and queue, grid search UI
+    - **Integrations** : Hugging Face Hub, Amazon SageMaker, Evidently AI, Databricks
+    - **Data Registry** : central dataset catalog with dvc list, dvc get, dvc import, chained imports, Python API (dvc.api)
+    - **CML (Continuous Machine Learning)** : CI/CD for ML, GitHub Actions, auto-reports in PRs, cloud runners (AWS EC2, Azure, GCP)
+    - **Advanced optimizations** : large dataset optimization (granular modifications), file linking (reflink/hardlink/symlink), merge conflict resolution, dvc gc (local/cloud/shared cache)
+    - **Full MLOps integration** : practical workflow combining DVC with Apache Airflow (orchestration) and MLflow (experiment tracking & model registry)
+    - **Direct applications to Cloud Security Data Engineering** : versioning CloudTrail logs, anomaly detection pipelines, model registry for security artifacts, drift monitoring with Evidently
+
+    > This comprehensive training directly equips me to implement **reproducible, auditable, and automated data pipelines** for cloud security analytics. Combined with my existing cloud (AWS/Azure), networking, and database expertise, I can now build **end-to-end MLOps workflows** for threat detection, log analysis, and compliance monitoring — treating data and models as first-class versioned assets in a DevSecOps framework.
+
+<img width="600" height="300" alt="951740c80e7ea08961c389c67654a126" src="https://github.com/user-attachments/assets/c018e951-fcca-40c6-8b7a-3e26f9b08a60" />
+
+- **June 11, 2026**: ✅ **Completed Comprehensive MLflow Mastery (12 Extensive Courses)**
+    Mastered the complete MLflow ecosystem for production-grade MLOps:
+    - **Tracking & Experiments (Cours 1-4):** Runs, parameters, metrics, artifacts, autologging (15+ frameworks), search APIs (SQL-like), system metrics (GPU/CPU/memory), parent-child runs
+    - **Models & Packaging (Cours 5):** MLmodel format, flavors (python_function, sklearn, pytorch, tensorflow, transformers, etc.), signatures, input examples, dependencies management, Models From Code, pickle-free formats (skops, pt2)
+    - **Dataset Tracking (Cours 6):** Dataset lineage, digest computation, versioning, integration with MLflow Evaluate, linking metrics to models and datasets
+    - **Architecture & Deployment (Cours 7):** Tracking server, backend stores (PostgreSQL, MySQL, SQLite), artifact stores (S3, Azure, GCS), security middleware (CORS, DNS rebinding), workspaces
+    - **Model Registry (Cours 9):** Versioning, aliases (@champion), tags, annotations, Unity Catalog (Databricks), model stages migration
+    - **Model Evaluation (Cours 8):** Automated metrics (accuracy, precision, recall, F1, ROC-AUC), custom metrics (make_metric), SHAP integration, validation thresholds
+    - **Serving & Deployment (Cours 10):** Local inference server (/invocations, /ping, /health), SageMaker deployment, Modal serverless GPU, batch inference
+    - **Deep Learning & LLMs (Cours 11):** PyTorch, TensorFlow, Transformers (llm/v1/chat OpenAI-compatible), Sentence Transformers, PEFT/QLoRA, Whisper, spaCy
+    - **Python API (Cours 12):** Fluent API, tracing (@mlflow.trace), logged models, MlflowClient, scikit-learn integration with skops secure serialization
+
+    > This comprehensive mastery of MLflow bridges the gap between model development and production deployment—essential for building reproducible, auditable, and scalable MLOps pipelines in cloud security contexts. The integration with DVC and Airflow (practical guide) now enables fully automated, end-to-end ML pipelines from data versioning to orchestration to model serving.
+
 [👉**For more details of progress**](https://github.com/Duracuir96/cybersecurity-journey/tree/main/self-learning%20labs)
 
 ---
