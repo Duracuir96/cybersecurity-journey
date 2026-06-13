@@ -429,7 +429,7 @@ Absolument ! Voici votre journal de progression mis à jour avec l'ajout demand�
 
     > This comprehensive mastery of MLflow bridges the gap between model development and production deployment—essential for building reproducible, auditable, and scalable MLOps pipelines in cloud security contexts. The integration with DVC and Airflow (practical guide) now enables fully automated, end-to-end ML pipelines from data versioning to orchestration to model serving.
 
-- **June 14, 2026**: ✅ **Completed Comprehensive PowerShell Mastery for CyberSecurity Data Engineer**
+- **June 13, 2026**: ✅ **Completed Comprehensive PowerShell Mastery for CyberSecurity Engineer**
     Acquired deep expertise in:
     - PowerShell fundamentals (cmdlets, pipeline, objects, Get-Member)
     - Event Logs analysis and forensic investigation (EventID hunting, XPath queries, wevtutil, Get-WinEvent)
@@ -443,7 +443,35 @@ Absolument ! Voici votre journal de progression mis à jour avec l'ajout demand�
 
     > This mastery transforms me from a PowerShell user into a **CyberSecurity Engineer** capable of automating threat detection, hunting persistence mechanisms, analyzing security logs at scale, and building enterprise-grade security tooling — all with native Windows capabilities, zero external dependencies.
 
+- **June 14, 2026**: ✅ **Completed Comprehensive Pre-Security  Mastery Pathway**
+
+    Completed an **exhaustive, structured curriculum** covering the full spectrum of information security, including:
     
+    - **Information security foundations** and governance (CIA triad, DAD, security models, GRC, frameworks)
+    
+    - **Identity and access management** (IAAA, DAC/RBAC/MAC, SSO, IAM, federation)
+    
+    - **Risk management**, **threat modelling** (MITRE ATT&CK, STRIDE, DREAD, PASTA), and **vulnerability management** (CVSS, CVE, NVD)
+    
+    - **Data handling**, **cryptography** (symmetric/asymmetric, PKI, hashing), and **security policies**
+    
+    - **Blockchain fundamentals** and cybersecurity applications
+    
+    - **Comprehensive networking** (protocols, segmentation, threats, secure communications)
+    
+    - **Cloud computing**, **virtualization**, **containers**, and **AWS security**
+    
+    - **Operating system hardening** (Linux, Windows, Active Directory)
+    
+    - **Logging**, **monitoring**, **auditing**, and **SIEM solutions**
+    
+    - **Incident response**, **business continuity**, **disaster recovery**, and **crisis management**
+    
+    - **OWASP API Security Top 10**, **Secure SDLC**, **DevSecOps**, **SAST/DAST**, and **vulnerability weaponization**
+    
+    - **OWASP Top 10 2025** (IAAA, design flaws, injection, integrity failures)
+      
+        > This comprehensive **cybersecurity mastery** directly supports my journey toward becoming a **CyberSecurity Engineer**, enabling me to design, secure, and audit **data pipelines** with a **defense-in-depth approach**, enforce **least privilege access controls**, detect and respond to **incidents**, and ensure **compliance** with industry standards and regulations.
 
 [👉**For more details of progress**](https://github.com/Duracuir96/cybersecurity-journey/tree/main/self-learning%20labs)
 
