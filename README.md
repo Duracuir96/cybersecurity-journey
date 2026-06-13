@@ -429,6 +429,22 @@ Absolument ! Voici votre journal de progression mis à jour avec l'ajout demand�
 
     > This comprehensive mastery of MLflow bridges the gap between model development and production deployment—essential for building reproducible, auditable, and scalable MLOps pipelines in cloud security contexts. The integration with DVC and Airflow (practical guide) now enables fully automated, end-to-end ML pipelines from data versioning to orchestration to model serving.
 
+- **June 14, 2026**: ✅ **Completed Comprehensive PowerShell Mastery for Cloud Security Data Engineer**
+    Acquired deep expertise in:
+    - PowerShell fundamentals (cmdlets, pipeline, objects, Get-Member)
+    - Event Logs analysis and forensic investigation (EventID hunting, XPath queries, wevtutil, Get-WinEvent)
+    - Registry manipulation and persistence detection (Run keys, services, Winlogon, WMI persistence)
+    - File Integrity Monitoring (FIM) with Get-FileHash and baseline creation
+    - Network threat detection (Get-NetTCPConnection, backdoors, C2 beaconing, Test-NetConnection)
+    - WMI/CIM system intelligence (Win32 classes, WQL queries, remote inventory)
+    - Security modules and audit policy (Defender automation, auditpol, EventID correlation)
+    - PowerShell Remoting at scale (Enter-PSSession, Invoke-Command, persistent sessions, implicit remoting)
+    - Scripting, functions, advanced parameters, modules, and production-ready toolmaking
+
+    > This mastery transforms me from a PowerShell user into a **CyberSecurity Engineer** capable of automating threat detection, hunting persistence mechanisms, analyzing security logs at scale, and building enterprise-grade security tooling — all with native Windows capabilities, zero external dependencies.
+
+    
+
 [👉**For more details of progress**](https://github.com/Duracuir96/cybersecurity-journey/tree/main/self-learning%20labs)
 
 ---
