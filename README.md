@@ -429,7 +429,7 @@ Absolument ! Voici votre journal de progression mis à jour avec l'ajout demand�
 
     > This comprehensive mastery of MLflow bridges the gap between model development and production deployment—essential for building reproducible, auditable, and scalable MLOps pipelines in cloud security contexts. The integration with DVC and Airflow (practical guide) now enables fully automated, end-to-end ML pipelines from data versioning to orchestration to model serving.
 
-- **June 14, 2026**: ✅ **Completed Comprehensive PowerShell Mastery for Cloud Security Data Engineer**
+- **June 14, 2026**: ✅ **Completed Comprehensive PowerShell Mastery for CyberSecurity Data Engineer**
     Acquired deep expertise in:
     - PowerShell fundamentals (cmdlets, pipeline, objects, Get-Member)
     - Event Logs analysis and forensic investigation (EventID hunting, XPath queries, wevtutil, Get-WinEvent)
