@@ -473,6 +473,21 @@ Absolument ! Voici votre journal de progression mis à jour avec l'ajout demand�
       
         > This comprehensive **cybersecurity mastery** directly supports my journey toward becoming a **CyberSecurity Engineer**, enabling me to design, secure, and audit **data pipelines** with a **defense-in-depth approach**, enforce **least privilege access controls**, detect and respond to **incidents**, and ensure **compliance** with industry standards and regulations.
 
+- **Juin 21, 2026**: ✅ **Completed Comprehensive Supervised Learning Mastery Track**
+    Mastered a wide range of supervised learning algorithms and their implementation with Scikit-Learn, including:
+    - Linear, Logistic, and Polynomial Regression
+    - Decision Trees and Random Forest (Bagging)
+    - XGBoost and Gradient Boosting (Boosting)
+    - Support Vector Machines (SVM)
+    - K-Nearest Neighbors (KNN)
+    - Naive Bayes Classifiers
+    - Model Evaluation, Hyperparameter Tuning (GridSearchCV, RandomizedSearchCV), and Cross-Validation techniques
+    - Feature engineering, selection, and preprocessing
+    - Pipeline creation for robust, reproducible ML workflows
+    - Time series forecasting with ARIMA
+
+    > This expertise is directly applicable to building predictive security analytics, developing intelligent threat detection systems, and designing data-driven risk scoring pipelines in the cloud — essential capabilities for my role as a Cloud Security Data Engineer.
+
 [👉**For more details of progress**](https://github.com/Duracuir96/cybersecurity-journey/tree/main/self-learning%20labs)
 
 ---
