@@ -139,7 +139,7 @@ This repository will contain projects and notes from my learning path.
     - Infrastructure monitoring
   
     > This knowledge directly strengthens my ability to design secure, resilient cloud data architectures and understand the underlying network layers critical for cybersecurity.
-Absolument ! Voici votre journal de progression mis à jour avec l'ajout demandé, en respectant strictement le style et la structure des rubriques précédentes.
+
 
 - **Febraury 21, 2026**: ✅ **Completed Pre-ML Engineering Mastery Program**
     Built a comprehensive, production-grade foundation in data engineering and machine learning fundamentals through an intensive, self-designed curriculum inspired by real-world cloud security challenges.
