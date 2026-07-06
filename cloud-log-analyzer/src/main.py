@@ -4,7 +4,7 @@ from data_processing.log_parser import LogParser
 from datetime import datetime, timedelta
 from data_processing.data_validator import DataValidator
 from analysis.heuristic_engine import HeuristicEngine
-
+from analysis.statistics_engine import StatisticsEngine
 connector = AWSConnector()
 
         # Layer 1 - collect
@@ -67,3 +67,24 @@ for detection_name, result_df in results.items():
         print(result_df)
     else:
         print("No threats detected")
+
+# ─── Layer 5 — statistics ─────────────────────────────────────
+stats = StatisticsEngine()
+report = stats.full_report(df, results)
+
+print(f"\n── Total Events: {report['total_events']} ────────")
+print(f"── Unique IPs: {report['unique_ips']} ──────────────")
+
+print("\n── Top Services ─────────────────────────")
+print(report["top_services"])
+
+print("\n── Detection Summary ────────────────────")
+print(report["detection_summary"])
+
+print(f"\n── Risk Score: {report['risk_score']}/100 ────────")
+
+print("\n── Cross-Detection Entities ─────────────")
+if not report["cross_detection_entities"].empty:
+    print(report["cross_detection_entities"])
+else:
+    print("No entity flagged by multiple detectors")

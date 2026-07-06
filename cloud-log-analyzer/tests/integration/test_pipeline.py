@@ -7,6 +7,7 @@ from src.data_collection.aws_connector import AWSConnector
 from src.data_processing.log_parser import LogParser
 from src.data_processing.data_validator import DataValidator
 from src.analysis.heuristic_engine import HeuristicEngine
+from src.analysis.statistics_engine import StatisticsEngine
 
 
 # ─── Fixtures ────────────────────────────────────────────────
@@ -666,4 +667,93 @@ class TestAttackScenario:
         assert len(results["data_exfiltration"]) > 0
         assert len(results["critical_events"])  > 0
         assert len(results["lambda_abuse"])     > 0
-        assert len(results["api_calls_by_ip"])  > 0
+        assert len(results["api_calls_by_ip"])  > 0 
+
+@pytest.fixture
+def stats_engine():
+    """Returns a fresh StatisticsEngine facade instance"""
+    return StatisticsEngine()
+
+
+class TestHeuristicEngineToStatisticsEngine:
+
+    def test_stats_engine_accepts_heuristic_results(
+        self, connector, parser, validator, engine, stats_engine,
+        valid_cloudtrail_file
+    ):
+        """StatisticsEngine must accept results from HeuristicEngine"""
+        # Arrange
+        df      = run_pipeline(connector, parser, validator, valid_cloudtrail_file)
+        results = engine.run_all_detections(df)
+
+        # Act
+        report = stats_engine.full_report(df, results)
+
+        # Assert
+        assert isinstance(report, dict)
+        assert report["total_events"] == 3
+
+    def test_clean_pipeline_produces_zero_risk_score(
+        self, connector, parser, validator, engine, stats_engine,
+        valid_cloudtrail_file
+    ):
+        """Clean environment must produce risk score of 0"""
+        # Arrange
+        df      = run_pipeline(connector, parser, validator, valid_cloudtrail_file)
+        results = engine.run_all_detections(df)
+
+        # Act
+        report = stats_engine.full_report(df, results)
+
+        # Assert
+        assert report["risk_score"] == 0
+
+    def test_full_pipeline_attack_scenario_max_risk_score(
+        self, connector, parser, validator, engine, stats_engine,
+        suspicious_cloudtrail_file
+    ):
+        """Full attack scenario fires all 11 detectors — risk score capped at 100"""
+        # Arrange
+        df      = run_pipeline(connector, parser, validator, suspicious_cloudtrail_file)
+        results = engine.run_all_detections(df)
+
+        # Act
+        report = stats_engine.full_report(df, results)
+
+        # Assert — all 11 detectors fire, weights sum to 130, capped at 100
+        assert report["risk_score"] == 100
+
+    def test_full_pipeline_detects_cross_detection_entity(
+        self, connector, parser, validator, engine, stats_engine,
+        suspicious_cloudtrail_file
+    ):
+        """'attacker' must appear across multiple detections end to end"""
+        # Arrange
+        df      = run_pipeline(connector, parser, validator, suspicious_cloudtrail_file)
+        results = engine.run_all_detections(df)
+
+        # Act
+        report = stats_engine.full_report(df, results)
+
+        # Assert
+        entities = report["cross_detection_entities"]["entity"].values
+        assert "attacker" in entities
+        assert "1.2.3.4" in entities
+
+    def test_full_pipeline_empty_file_statistics(
+        self, connector, parser, validator, engine, stats_engine,
+        empty_cloudtrail_file
+    ):
+        """Empty input must produce empty statistics without crash"""
+        # Arrange
+        df      = run_pipeline(connector, parser, validator, empty_cloudtrail_file)
+        results = engine.run_all_detections(df)
+
+        # Act
+        report = stats_engine.full_report(df, results)
+
+        # Assert
+        assert report["total_events"] == 0
+        assert report["unique_ips"] == 0
+        assert report["risk_score"] == 0
+        assert len(report["detection_summary"]) == 11

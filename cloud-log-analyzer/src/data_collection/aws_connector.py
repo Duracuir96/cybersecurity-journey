@@ -54,6 +54,9 @@ class AWSConnector:
         except json.JSONDecodeError as e:
             print(f"[ERROR] JSON invalide : {e}")
             return []
+        except Exception as e:
+            print(f"[ERROR] Unexpected error reading {file_path}: {e}")
+            return []
 
     def _load_from_aws(self, start_time, end_time, max_events):
         if not self.client:
