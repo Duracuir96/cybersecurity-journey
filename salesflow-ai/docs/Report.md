@@ -165,51 +165,8 @@ This layer represents the **core automation logic** of the Python backend.
 #### **Implemented Pipelines**
 
 #### 🟦 Sales Analytics Pipeline
-```mermaid
-flowchart TD
-    A[Start] --> B[Receive sales data from Java API]
-    B --> C[Validate input with Pydantic models]
-    C --> D{Cache hit?}
-    
-    D -- Yes --> E[Retrieve from Redis cache]
-    E --> F[Return API response]
-    F --> Z[End]
-    
-    D -- No --> G[Load into Pandas DataFrame]
-    G --> H[Aggregate by period/product/region]
-    H --> I[Calculate KPIs]
-    I --> J[Serialize results]
-    J --> K[Store in Redis TTL: 1 hour]
-    K --> F
-    
-    subgraph KPI_Calculation[KPIs Calculated]
-        I1[Revenue]
-        I2[Growth rate]
-        I3[Customer metrics]
-    end
-    
-    style A fill:#e1f5fe
-    style B fill:#bbdefb
-    style C fill:#90caf9
-    style D fill:#64b5f6
-    style G fill:#42a5f5
-    style H fill:#2196f3
-    style I fill:#1e88e5
-    style J fill:#1976d2
-    style K fill:#1565c0
-    style E fill:#0d47a1
-    style F fill:#0d47a1
-    
-    linkStyle 0 stroke:#2196f3,stroke-width:2px
-    linkStyle 1 stroke:#2196f3,stroke-width:2px
-    linkStyle 2 stroke:#4caf50,stroke-width:2px
-    linkStyle 3 stroke:#f44336,stroke-width:2px
-    linkStyle 4 stroke:#2196f3,stroke-width:2px
-    linkStyle 5 stroke:#2196f3,stroke-width:2px
-    linkStyle 6 stroke:#2196f3,stroke-width:2px
-    linkStyle 7 stroke:#2196f3,stroke-width:2px
-    linkStyle 8 stroke:#2196f3,stroke-width:2px
-```
+<img width="364" height="702" alt="image" src="https://github.com/user-attachments/assets/c63b06cd-ad0b-471b-a635-acff02898743" />
+
 #### 🟦 Stock Analytics Pipeline
 <img width="364" height="702" alt="image" src="https://github.com/user-attachments/assets/58d73cf5-75f4-47ca-a39d-3392d1d4bc68" />
 

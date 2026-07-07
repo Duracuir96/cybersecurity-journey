@@ -33,7 +33,8 @@ All services communicate over a Docker network using explicit ports and environm
   - Frontend
  
 
-![45b13c47237fcaca2a78dfe1d1ed75a4](https://github.com/user-attachments/assets/4392f55d-a2c1-45e0-b2b1-a6618d440c1e)
+<img width="812" height="571" alt="image" src="https://github.com/user-attachments/assets/41eaea8b-3f36-46b9-ac6e-265d69feca57" />
+
 
 - `docs/`  
   Architecture diagrams and technical documentation (microservices, pipelines, data flows).
