@@ -6,6 +6,10 @@ from data_processing.log_parser import LogParser
 from data_processing.data_validator import DataValidator
 from analysis.heuristic_engine import HeuristicEngine
 from analysis.statistics_engine import StatisticsEngine
+from dotenv import load_dotenv
+from notifications.email_notifier import EmailNotifier
+
+load_dotenv()
 
 
 # ── SOURCE SELECTOR ──────────────────────────────────────────
@@ -122,3 +126,14 @@ if __name__ == "__main__":
         print(report["cross_detection_entities"])
     else:
         print("No entity flagged by multiple detectors")
+
+
+    # layer 6 
+
+notifier = EmailNotifier()
+sent = notifier.send_alert(report, results)
+
+if sent:
+    print("[INFO] Alert email sent")
+else:
+    print("[INFO] No alert email sent")

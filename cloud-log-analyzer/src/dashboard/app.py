@@ -15,6 +15,10 @@ from data_processing.log_parser import LogParser
 from data_processing.data_validator import DataValidator
 from analysis.heuristic_engine import HeuristicEngine
 from analysis.statistics_engine import StatisticsEngine 
+from notifications.email_notifier import EmailNotifier
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 # ─── Page config ─────────────────────────────────────────────
@@ -723,6 +727,18 @@ def render_sidebar():
             "Voldi BOKANGA</p>",
             unsafe_allow_html=True
         )
+    with st.sidebar:
+        st.markdown("---")
+        if st.button("📧 Send Alert Email", use_container_width=True):
+            notifier = EmailNotifier()
+            sent = notifier.send_alert(
+                st.session_state.report,
+                st.session_state.results
+            )
+            if sent:
+                st.success("✅ Alert email sent")
+            else:
+                st.warning("⚠ Email not sent — check .env config")
 
     return theme_choice, source, file_path, hours, \
            detection_config, thresholds, load_btn
