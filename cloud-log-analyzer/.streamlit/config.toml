@@ -2,10 +2,11 @@
 
 [theme]
 base = "dark"
+backgroundColor = "#0F1117"
+secondaryBackgroundColor = "#12141B"
+textColor = "#E6E9EF"
+primaryColor = "#00D4AA"
+font = "sans serif"
 
 [server]
 headless = true
-port = 8501
-
-[browser]
-gatherUsageStats = false
