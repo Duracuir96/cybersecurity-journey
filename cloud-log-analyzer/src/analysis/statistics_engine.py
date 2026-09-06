@@ -46,6 +46,10 @@ class StatisticsEngine:
         """Delegates to SecurityStatistics"""
         return self.security.risk_score(results)
 
+    def risk_score_by_entity(self, results):
+        """Delegates to SecurityStatistics — v2.0 per-entity risk scores"""
+        return self.security.risk_score_by_entity(results)
+
     def cross_detection_entities(self, results, min_detections=2):
         """Delegates to SecurityStatistics"""
         return self.security.cross_detection_entities(results, min_detections)
@@ -68,5 +72,6 @@ class StatisticsEngine:
             "events_per_hour":  self.events_per_hour(df),
             "detection_summary":        self.detection_summary(results),
             "risk_score":               self.risk_score(results),
-            "cross_detection_entities": self.cross_detection_entities(results)
+            "risk_score_by_entity":     self.risk_score_by_entity(results),
+            "cross_detection_entities": self.cross_detection_entities(results),
         }

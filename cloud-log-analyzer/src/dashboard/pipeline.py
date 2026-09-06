@@ -104,7 +104,8 @@ def _run_detections(engine, df, detection_config, thresholds):
         "failed_logins": lambda: engine.detect_failed_logins(
             df, threshold=thresholds.get("failed_logins", 3)),
         "iam_changes": lambda: engine.detect_iam_changes(df),
-        "credential_abuse": lambda: engine.detect_credential_abuse(df),
+        "credential_abuse": lambda: engine.detect_credential_abuse(
+            df, ip_threshold=thresholds.get("credential_abuse", 2)),
         "critical_events": lambda: engine.detect_critical_events(df),
         "s3_exfiltration": lambda: engine.detect_s3_exfiltration(
             df, threshold=thresholds.get("s3_exfiltration", 5)),

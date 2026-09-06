@@ -8,8 +8,11 @@ from dashboard.config.render import html
 def render_notification_config(t):
     """
     Renders the email notification settings.
+    The risk threshold now lives in THRESHOLDS ("Risk alert floor") — there is
+    a single source of truth, so it is NOT duplicated here.
+
     Input  : theme dict
-    Output : recipient (str), risk_threshold (int), auto_send (bool)
+    Output : recipient (str), auto_send (bool)
     """
     html('<div class="cla-label">NOTIFICATIONS</div>')
 
@@ -20,15 +23,13 @@ def render_notification_config(t):
             placeholder="soc@company.com",
             key="notif_recipient",
         )
-        risk_threshold = st.slider(
-            "ALERT THRESHOLD",
-            min_value=0, max_value=100, value=25, step=5,
-            key="notif_threshold",
-            help="Send alert when risk score exceeds this value",
+        auto_send = st.checkbox(
+            "Auto-send when an entity crosses the risk floor",
+            value=False,
+            key="notif_auto",
         )
-        auto_send = st.checkbox("Auto-send on load", value=False, key="notif_auto")
 
-    return recipient, risk_threshold, auto_send
+    return recipient, auto_send
 
 
 def render_ingesting_status(t, source):

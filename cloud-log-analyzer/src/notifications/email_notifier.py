@@ -10,24 +10,27 @@ from datetime import datetime
 class EmailNotifier:
     """
     Sends security alert emails based on detection results.
-    Only fires when the risk score exceeds the threshold or critical events
-    are detected.
+
+    v2.0 Risk-Based Alerting: the alert fires when at least one ENTITY
+    (an IP or a username) crosses the risk floor, or when a critical event
+    is detected. The email is a Risk Notable — it names the entities that
+    crossed the floor, with their score, so the analyst knows who to chase.
 
     Layer 7 — notification only. No analysis, no detection, no UI.
     """
 
-    # Risk score at or above this value triggers an email.
-    DEFAULT_RISK_THRESHOLD = 25
+    # Risk floor: an entity scoring at or above this triggers an alert.
+    DEFAULT_RISK_THRESHOLD = 70
 
     # ── Design tokens (mirror the dashboard spec) ─────────────
-    _BG        = "#0F1117"   # page
-    _PANEL     = "#151821"   # cards
-    _BORDER    = "#1F2430"   # card border
-    _FG        = "#E6E9EF"   # primary text
-    _FG2       = "#B4BCCC"   # secondary text
-    _LABEL     = "#6E7688"   # uppercase labels
-    _MUTE      = "#5C6474"   # muted text
-    _ACCENT    = "#00D4AA"   # accent
+    _BG        = "#0F1117"
+    _PANEL     = "#151821"
+    _BORDER    = "#1F2430"
+    _FG        = "#E6E9EF"
+    _FG2       = "#B4BCCC"
+    _LABEL     = "#6E7688"
+    _MUTE      = "#5C6474"
+    _ACCENT    = "#00D4AA"
     _CRITICAL  = "#F04452"
     _HIGH      = "#FF8A3D"
     _MEDIUM    = "#F5C842"
@@ -36,7 +39,6 @@ class EmailNotifier:
     _SANS      = "Inter, Arial, sans-serif"
 
     def __init__(self):
-        """Loads SMTP credentials from environment variables."""
         self.smtp_host     = os.getenv("SMTP_HOST", "smtp.gmail.com")
         self.smtp_port     = int(os.getenv("SMTP_PORT", "587"))
         self.smtp_user     = os.getenv("SMTP_USER", "")
@@ -45,17 +47,39 @@ class EmailNotifier:
         self.recipient     = os.getenv("ALERT_RECIPIENT", "")
 
     def _is_configured(self):
-        """True only when all required SMTP credentials are set."""
         return all([self.smtp_user, self.smtp_password, self.recipient])
+
+    # ── Decision (entity-based, testable without SMTP) ────────
+
+    def _evaluate(self, report, results, force=False):
+        """
+        Decides whether to alert and which entities crossed the floor.
+
+        Returns (should_send, flagged, has_critical) where `flagged` is a
+        {entity: score} dict of entities at or above the risk floor.
+        """
+        threshold = self.DEFAULT_RISK_THRESHOLD
+        entity_scores = report.get("risk_score_by_entity", {}) or {}
+
+        flagged = {e: s for e, s in entity_scores.items() if s >= threshold}
+
+        critical = results.get("critical_events")
+        has_critical = critical is not None and not critical.empty
+
+        if force:
+            return True, flagged, has_critical
+
+        if entity_scores:
+            should_send = bool(flagged) or has_critical
+        else:
+            # Report predates v2.0 — fall back to the global score.
+            should_send = report.get("risk_score", 0) >= threshold or has_critical
+
+        return should_send, flagged, has_critical
 
     # ── Severity helpers ──────────────────────────────────────
 
     def _severity(self, score, has_critical):
-        """
-        Returns (label, colour) describing WHY the alert fired.
-        A critical event always wins over the numeric score, so an alert
-        is never labelled LOW.
-        """
         if has_critical:
             return "CRITICAL EVENT", self._CRITICAL
         if score >= 75:
@@ -65,7 +89,6 @@ class EmailNotifier:
         return "MEDIUM", self._MEDIUM
 
     def _risk_colour(self, score):
-        """Colour for the numeric score block (factual, not the alert reason)."""
         if score >= 75:
             return self._CRITICAL
         if score >= 50:
@@ -74,8 +97,10 @@ class EmailNotifier:
             return self._MEDIUM
         return self._LOW
 
+    def _entity_colour(self, score):
+        return self._risk_colour(score)
+
     def _build_subject(self, report, has_critical=False):
-        """Builds the subject line from the reason the alert fired."""
         score = report.get("risk_score", 0)
         label, _ = self._severity(score, has_critical)
         return (
@@ -87,7 +112,6 @@ class EmailNotifier:
     # ── HTML fragments ────────────────────────────────────────
 
     def _dot(self, colour):
-        """A small coloured status dot (replaces emoji)."""
         return (
             f"<span style='display:inline-block;width:8px;height:8px;"
             f"border-radius:50%;background:{colour};"
@@ -126,18 +150,38 @@ class EmailNotifier:
             f"{text}</td>"
         )
 
-    def _build_body(self, report, results, has_critical=False):
-        """Builds a structured HTML email body matching the dashboard design."""
+    def _build_body(self, report, results, has_critical=False, flagged=None):
         score        = report.get("risk_score", 0)
         total_events = report.get("total_events", 0)
         unique_ips   = report.get("unique_ips", 0)
         summary      = report.get("detection_summary")
-        entities     = report.get("cross_detection_entities")
+        flagged      = flagged or {}
 
         sev_label, sev_colour = self._severity(score, has_critical)
         risk_colour = self._risk_colour(score)
 
-        # Active alerts rows
+        # Risk Notable — entities that crossed the floor
+        notable_rows = ""
+        for entity, esc in sorted(flagged.items(), key=lambda kv: kv[1], reverse=True):
+            notable_rows += (
+                "<tr>"
+                + self._td(str(entity), colour=self._FG, mono=True)
+                + self._td(f"{int(esc)}/100", colour=self._entity_colour(esc),
+                           align="right", bold=True)
+                + "</tr>"
+            )
+        notable_block = ""
+        if notable_rows:
+            notable_block = (
+                self._card_open(border=self._CRITICAL)
+                + self._label("Risk notable — entities above the floor "
+                              f"({self.DEFAULT_RISK_THRESHOLD})")
+                + "<table style='width:100%;border-collapse:collapse;'>"
+                + "<tr>" + self._th("Entity") + self._th("Risk", "right") + "</tr>"
+                + notable_rows + "</table></div>"
+            )
+
+        # Active alerts
         alerts_rows = ""
         if summary is not None and not summary.empty:
             active = summary[summary["status"] == "ALERT"]
@@ -150,52 +194,15 @@ class EmailNotifier:
                     + self._td("ALERT", colour=self._CRITICAL, align="center")
                     + "</tr>"
                 )
-
         alerts_block = ""
         if alerts_rows:
             alerts_block = (
                 self._card_open()
                 + self._label("Active alerts")
                 + "<table style='width:100%;border-collapse:collapse;'>"
-                + "<tr>"
-                + self._th("Detection")
-                + self._th("Count", "center")
-                + self._th("Status", "center")
-                + "</tr>"
-                + alerts_rows
-                + "</table></div>"
-            )
-
-        # Cross-detection entities rows
-        entities_rows = ""
-        if entities is not None and not entities.empty:
-            for _, row in entities.iterrows():
-                entities_rows += (
-                    "<tr>"
-                    + self._td(row["entity"], colour=self._FG, mono=True)
-                    + self._td(str(row["detection_count"]),
-                               colour=self._CRITICAL, align="center", bold=True)
-                    + self._td(row["detections"], colour=self._MUTE)
-                    + "</tr>"
-                )
-
-        entities_block = ""
-        if entities_rows:
-            entities_block = (
-                self._card_open(border=self._CRITICAL)
-                + self._label("High priority — cross-detection entities")
-                + f"<p style='color:{self._FG2};font-size:12px;line-height:1.55;"
-                  f"margin:0 0 14px 0;'>These entities were flagged by multiple "
-                  f"independent detectors and warrant the highest investigation "
-                  f"priority.</p>"
-                + "<table style='width:100%;border-collapse:collapse;'>"
-                + "<tr>"
-                + self._th("Entity")
-                + self._th("Detectors", "center")
-                + self._th("Flagged by")
-                + "</tr>"
-                + entities_rows
-                + "</table></div>"
+                + "<tr>" + self._th("Detection") + self._th("Count", "center")
+                + self._th("Status", "center") + "</tr>"
+                + alerts_rows + "</table></div>"
             )
 
         return f"""<!DOCTYPE html>
@@ -221,8 +228,8 @@ font-weight:700;margin:0;">{score}<span style="font-size:20px;color:{self._MUTE}
 {total_events:,} events analyzed &nbsp;|&nbsp; {unique_ips} unique IPs</p>
 </div>
 
+{notable_block}
 {alerts_block}
-{entities_block}
 
 <div style="background:{self._PANEL};border:1px solid {self._BORDER};
 border-radius:6px;padding:16px;text-align:center;">
@@ -234,24 +241,24 @@ Cloud Log Analyzer v1.0 &nbsp;|&nbsp; Cloud Security Data Engineer &nbsp;|&nbsp;
 </body>
 </html>"""
 
-    def send_alert(self, report, results):
+    def send_alert(self, report, results, force=False):
         """
-        Sends a security alert email if the risk score exceeds the threshold
-        or critical events are detected.
-        Output : bool — True if email sent, False otherwise.
+        Sends a Risk Notable email when an entity crosses the risk floor,
+        when a critical event is detected, or when force=True (manual send).
+
+        Input  : report dict (Layer 5) + results dict (Layer 4)
+        Output : bool — True if email sent, False otherwise
         """
         if not self._is_configured():
             print("[WARN] EmailNotifier not configured — set SMTP env vars")
             return False
 
-        score           = report.get("risk_score", 0)
-        critical_events = results.get("critical_events", None)
-        has_critical    = (
-            critical_events is not None and not critical_events.empty
-        )
+        should_send, flagged, has_critical = self._evaluate(report, results, force)
 
-        if score < self.DEFAULT_RISK_THRESHOLD and not has_critical:
-            print(f"[INFO] Risk score {score}/100 below threshold — no alert sent")
+        if not should_send:
+            score = report.get("risk_score", 0)
+            print(f"[INFO] No entity above floor "
+                  f"{self.DEFAULT_RISK_THRESHOLD} (top score {score}) — no alert")
             return False
 
         try:
@@ -260,7 +267,8 @@ Cloud Log Analyzer v1.0 &nbsp;|&nbsp; Cloud Security Data Engineer &nbsp;|&nbsp;
             msg["From"]    = self.sender
             msg["To"]      = self.recipient
 
-            html_body = self._build_body(report, results, has_critical=has_critical)
+            html_body = self._build_body(report, results,
+                                         has_critical=has_critical, flagged=flagged)
             msg.attach(MIMEText(html_body, "html"))
 
             with smtplib.SMTP(self.smtp_host, self.smtp_port) as server:
@@ -269,7 +277,9 @@ Cloud Log Analyzer v1.0 &nbsp;|&nbsp; Cloud Security Data Engineer &nbsp;|&nbsp;
                 server.login(self.smtp_user, self.smtp_password)
                 server.sendmail(self.sender, self.recipient, msg.as_string())
 
-            print(f"[INFO] Alert sent to {self.recipient} — Risk Score {score}/100")
+            n = len(flagged)
+            print(f"[INFO] Alert sent to {self.recipient} "
+                  f"— {n} entity(ies) above floor")
             return True
 
         except smtplib.SMTPAuthenticationError:

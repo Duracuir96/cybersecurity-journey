@@ -54,7 +54,7 @@ def _render_sidebar():
         detection_config, thresholds = render_detection_config(t)
 
         html(f"<hr style='border-color:{t['border']};margin:12px 0;'>")
-        recipient, risk_threshold, auto_send = render_notification_config(t)
+        recipient, auto_send = render_notification_config(t)
 
         html("<div style='height:8px;'></div>")
         load_btn = st.button(
@@ -66,7 +66,7 @@ def _render_sidebar():
 
     return (theme_choice, source, file_path, hours, source_name,
             detection_config, thresholds,
-            recipient, risk_threshold, auto_send, load_btn)
+            recipient, auto_send, load_btn)
 
 
 def _render_empty_state(t):
@@ -111,10 +111,13 @@ def main():
 
     (theme_choice, source, file_path, hours, source_name,
      detection_config, thresholds,
-     recipient, risk_threshold, auto_send, load_btn) = _render_sidebar()
+     recipient, auto_send, load_btn) = _render_sidebar()
 
     t = THEMES[theme_choice]
     apply_css(t)
+
+    # Single source of truth for the alert threshold: the risk floor stepper.
+    risk_floor = thresholds.get("risk_floor", 70)
 
     if load_btn:
         df, results, report = run_pipeline(
@@ -129,10 +132,11 @@ def main():
                 f"{report.get('total_events', 0):,} events analyzed "
                 f"— Risk Score {report.get('risk_score', 0)}/100"
             )
+            # Auto-send: gated by the risk floor (per-entity).
             if auto_send and recipient:
                 notifier = EmailNotifier()
                 notifier.recipient = recipient
-                notifier.DEFAULT_RISK_THRESHOLD = risk_threshold
+                notifier.DEFAULT_RISK_THRESHOLD = risk_floor
                 if notifier.send_alert(report, results):
                     st.info(f"Alert email sent to {recipient}")
 
@@ -152,12 +156,13 @@ def main():
         if recipient:
             c1, c2, c3 = st.columns([3, 1, 3])
             with c2:
+                # Manual send forces the email regardless of the floor.
                 if st.button("Send Alert Email", use_container_width=True):
                     notifier = EmailNotifier()
                     notifier.recipient = recipient
-                    notifier.DEFAULT_RISK_THRESHOLD = risk_threshold
+                    notifier.DEFAULT_RISK_THRESHOLD = risk_floor
                     if notifier.send_alert(st.session_state.report,
-                                           st.session_state.results):
+                                           st.session_state.results, force=True):
                         st.success(f"Alert sent to {recipient}")
                     else:
                         st.warning("Email not sent — check .env config")

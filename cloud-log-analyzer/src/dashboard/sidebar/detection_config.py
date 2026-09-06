@@ -73,6 +73,7 @@ def render_detection_config(t):
         "iam_enumeration": _threshold_row(t, "IAM enum calls",  "thr_enum",   3, 2, 10),
         "role_chaining":   _threshold_row(t, "Role hops",       "thr_role",   3, 2, 10),
         "risk_floor":      _threshold_row(t, "Risk alert floor","thr_risk",  70, 0, 100, step=5),
+        "credential_abuse": _threshold_row(t, "Distinct IPs (cred abuse)", "thr_cred", 2, 2, 10)
     }
 
     return detection_config, thresholds

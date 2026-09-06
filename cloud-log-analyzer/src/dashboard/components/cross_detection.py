@@ -2,6 +2,7 @@
 #
 # Cross-Detection Entities table — design spec section 5.
 # Single .cla-tbl container (head + rows) so borders / hover are continuous.
+# The RISK column shows the real per-entity risk score (v2.0 RBA).
 
 import re
 import streamlit as st
@@ -42,9 +43,10 @@ def render_cross_detection(t, report):
         )
         return
 
-    # ── Sort by risk (detection count) desc ───────────────────
-    ents = entities.sort_values("detection_count", ascending=False)
-    max_c = int(ents["detection_count"].max()) or 1
+    # ── Sort by real risk score when available (v2.0), else by count ──
+    has_risk = "risk_score" in entities.columns
+    sort_col = "risk_score" if has_risk else "detection_count"
+    ents = entities.sort_values(sort_col, ascending=False)
 
     gap = "column-gap:10px;"
     head = (
@@ -55,7 +57,7 @@ def render_cross_detection(t, report):
         + '</div>'
     )
 
-    rows = "".join(_row(t, row, max_c, gap) for _, row in ents.iterrows())
+    rows = "".join(_row(t, row, has_risk, gap) for _, row in ents.iterrows())
 
     html('<div class="cla-tbl">' + head + rows + '</div>')
 
@@ -67,7 +69,18 @@ def _col(label, right=False):
     return f'<div class="cla-col" style="{align}">{label}</div>'
 
 
-def _row(t, row, max_c, gap):
+def _severity_colour(t, risk):
+    """Colour by risk score (0-100), matching the severity palette."""
+    if risk >= 75:
+        return t["critical"]
+    if risk >= 50:
+        return t["high"]
+    if risk >= 25:
+        return t["medium"]
+    return t["low"]
+
+
+def _row(t, row, has_risk, gap):
     entity     = str(row.get("entity", "unknown"))
     det_count  = int(row.get("detection_count", 0))
     detections = str(row.get("detections", ""))
@@ -75,16 +88,20 @@ def _row(t, row, max_c, gap):
     etype    = _entity_type(entity)
     subtitle = _entity_subtitle(entity, etype)
 
-    if det_count >= 4:
-        sev = t["critical"]
-    elif det_count >= 3:
-        sev = t["high"]
+    # Real per-entity risk score (v2.0). Fall back to a count-derived value
+    # only if the report predates v2.0 and has no risk_score column.
+    if has_risk:
+        risk = int(row.get("risk_score", 0))
+        sev = _severity_colour(t, risk)
+        risk_pct = min(risk, 100)
     else:
-        sev = t["medium"]
+        risk = det_count
+        sev = (t["critical"] if det_count >= 4
+               else t["high"] if det_count >= 3 else t["medium"])
+        risk_pct = min(int(det_count / 11 * 100), 100)
 
-    chips    = _chips(detections)
-    events   = f"{det_count * 100:,}"
-    risk_pct = min(int(det_count / max_c * 100), 100)
+    chips  = _chips(detections)
+    events = f"{det_count * 100:,}"
 
     ent_cell = (
         '<div style="display:flex;align-items:center;gap:8px;min-width:0;">'
@@ -113,7 +130,7 @@ def _row(t, row, max_c, gap):
         f'<span style="display:block;width:{risk_pct}%;height:3px;'
         f'background:{sev};"></span></span>'
         f'<span style="font-family:var(--mono);font-size:11px;color:{sev};">'
-        f'{det_count}</span></div>'
+        f'{risk}</span></div>'
     )
 
     return (

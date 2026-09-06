@@ -413,68 +413,65 @@ class TestDetectionSummary:
 
 # ─── Tests : risk_score() ────────────────────────────────────
 
+
 class TestRiskScore:
+    """v2.0 — risk score is entity-based (Risk-Based Alerting)."""
 
-    def test_returns_zero_on_clean_environment(
-        self, engine, empty_detection_results
-    ):
-        """Risk score must be 0 when no detection fires"""
-        # Arrange — all empty
+    def test_returns_zero_on_clean_environment(self, engine, empty_detection_results):
+        """Risk score must be 0 when no detection fires."""
+        assert engine.risk_score(empty_detection_results) == 0
 
-        # Act
-        result = engine.risk_score(empty_detection_results)
-
-        # Assert
-        assert result == 0
-
-    def test_critical_event_adds_highest_weight(
-        self, engine, results_with_critical_event
-    ):
-        """critical_events has weight 25 — single detection score"""
-        # Arrange — only critical_events fires
-
-        # Act
-        result = engine.risk_score(results_with_critical_event)
-
-        # Assert
-        assert result == 25
+    def test_critical_event_adds_highest_weight(self, engine, results_with_critical_event):
+        """The flagged entity carries critical_events' full weight (25)."""
+        assert engine.risk_score(results_with_critical_event) == 25
 
     def test_score_is_capped_at_100(self, engine, empty_detection_results):
-        """Score must never exceed 100 even if all detections fire"""
-        # Arrange — fill ALL 11 detections (sum of weights = 130)
+        """A single entity flagged everywhere never exceeds 100."""
+        ip, user = "evil", "evil"
         results = empty_detection_results.copy()
-        for name in results:
-            results[name] = pd.DataFrame([{"dummy": "value"}])
-
-        # Act
-        result = engine.risk_score(results)
-
-        # Assert — capped at 100
-        assert result == 100
+        results["failed_logins"]     = pd.DataFrame([{"sourceIPAddress": ip, "login_count": 99999}])
+        results["api_calls_by_ip"]   = pd.DataFrame([{"sourceIPAddress": ip, "call_count": 99999}])
+        results["ec2_suspicious"]    = pd.DataFrame([{"sourceIPAddress": ip, "eventName": "RunInstances"}])
+        results["data_exfiltration"] = pd.DataFrame([{"sourceIPAddress": ip, "eventName": "DeleteFlowLogs"}])
+        results["credential_abuse"]  = pd.DataFrame([{"userName": user, "unique_ip_count": 50}])
+        results["iam_changes"]       = pd.DataFrame([{"userName": user, "eventName": "CreateUser"}] * 50)
+        results["critical_events"]   = pd.DataFrame([{"userName": user, "eventName": "DeleteTrail"}])
+        assert engine.risk_score(results) == 100
 
     def test_returns_integer(self, engine, empty_detection_results):
-        """Risk score must be a native Python int"""
-        # Arrange
+        """Risk score must be a native Python int."""
+        assert isinstance(engine.risk_score(empty_detection_results), int)
 
-        # Act
-        result = engine.risk_score(empty_detection_results)
-
-        # Assert
-        assert isinstance(result, int)
-
-    def test_unknown_detection_uses_default_weight(
-        self, engine, empty_detection_results
-    ):
-        """A detection key not in DETECTION_WEIGHTS uses default weight 5"""
-        # Arrange — add a future detector not yet weighted
+    def test_unknown_detection_is_ignored(self, engine, empty_detection_results):
+        """A detector not in ENTITY_CONFIG is ignored (no contribution)."""
         results = empty_detection_results.copy()
-        results["some_future_detector"] = pd.DataFrame([{"dummy": "value"}])
+        results["some_future_detector"] = pd.DataFrame([{"sourceIPAddress": "1.2.3.4"}])
+        assert engine.risk_score(results) == 0
 
-        # Act
-        result = engine.risk_score(results)
+    def test_score_scales_with_intensity(self, engine, empty_detection_results):
+        """Same detector, more intense actor => higher score (volumetric)."""
+        light = empty_detection_results.copy()
+        light["failed_logins"] = pd.DataFrame([{"sourceIPAddress": "a", "login_count": 3}])
+        heavy = empty_detection_results.copy()
+        heavy["failed_logins"] = pd.DataFrame([{"sourceIPAddress": "a", "login_count": 200}])
+        assert engine.risk_score(heavy) > engine.risk_score(light)
 
-        # Assert — default weight applied
-        assert result == 5
+    def test_global_equals_most_dangerous_entity(self, engine, empty_detection_results):
+        """Global score = the single most dangerous entity's score."""
+        results = empty_detection_results.copy()
+        results["failed_logins"]    = pd.DataFrame([{"sourceIPAddress": "weak", "login_count": 3}])
+        results["credential_abuse"] = pd.DataFrame([{"userName": "strong", "unique_ip_count": 2}])
+        scores = engine.risk_score_by_entity(results)
+        assert engine.risk_score(results) == max(scores.values()) == 30
+
+
+class TestFullReportV2:
+    """Step 2 — full_report exposes entity scores without breaking existing keys."""
+
+    def test_full_report_contains_entity_scores(self, engine, empty_dataframe, empty_detection_results):
+        report = engine.full_report(empty_dataframe, empty_detection_results)
+        assert "risk_score_by_entity" in report
+        assert isinstance(report["risk_score_by_entity"], dict)
 
 
 # ─── Tests : cross_detection_entities() ──────────────────────
