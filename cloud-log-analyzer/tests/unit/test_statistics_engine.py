@@ -413,7 +413,6 @@ class TestDetectionSummary:
 
 # ─── Tests : risk_score() ────────────────────────────────────
 
-
 class TestRiskScore:
     """v2.0 — risk score is entity-based (Risk-Based Alerting)."""
 

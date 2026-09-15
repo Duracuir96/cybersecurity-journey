@@ -1,0 +1,33 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "WhoAmI",
+      "Effect": "Allow",
+      "Action": "sts:GetCallerIdentity",
+      "Resource": "*"
+    },
+    {
+      "Sid": "SetupAndTeardownVictimUsers",
+      "Effect": "Allow",
+      "Action": [
+        "iam:CreateUser",
+        "iam:GetUser",
+        "iam:CreateLoginProfile",
+        "iam:DeleteLoginProfile",
+        "iam:ListAccessKeys",
+        "iam:DeleteAccessKey",
+        "iam:ListAttachedUserPolicies",
+        "iam:DetachUserPolicy",
+        "iam:ListUserPolicies",
+        "iam:DeleteUserPolicy",
+        "iam:DeleteUser"
+      ],
+      "Resource": [
+        "arn:aws:iam::ACCOUNT_ID:user/alice",
+        "arn:aws:iam::ACCOUNT_ID:user/bob",
+        "arn:aws:iam::ACCOUNT_ID:user/charlie"
+      ]
+    }
+  ]
+}

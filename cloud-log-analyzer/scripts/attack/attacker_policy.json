@@ -1,0 +1,56 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Phase0Reconnaissance",
+      "Effect": "Allow",
+      "Action": [
+        "iam:ListUsers",
+        "iam:ListRoles",
+        "iam:ListPolicies",
+        "iam:ListGroups",
+        "iam:GetAccountAuthorizationDetails",
+        "sts:GetCallerIdentity"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "Phase2PrivilegeEscalation",
+      "Effect": "Allow",
+      "Action": [
+        "iam:CreateUser",
+        "iam:AttachUserPolicy",
+        "iam:CreateAccessKey"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "Phase3S3Exfiltration",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListAllMyBuckets",
+        "s3:CreateBucket",
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:GetBucketAcl"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "Phase4RoleChaining",
+      "Effect": "Allow",
+      "Action": "sts:AssumeRole",
+      "Resource": "arn:aws:iam::ACCOUNT_ID:role/lab-hop-role-1"
+    },
+    {
+      "Sid": "Phase5CoveringTracks",
+      "Effect": "Allow",
+      "Action": [
+        "cloudtrail:StopLogging",
+        "cloudtrail:StartLogging",
+        "cloudtrail:GetTrailStatus"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

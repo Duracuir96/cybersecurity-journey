@@ -1,3 +1,11 @@
 .venv/
 AWSKEY.env
 .env
+structure.txt
+scripts\attack\config.py
+.streamlit
+.pytest_cache
+.vscode
+__pycache__/
+lib
+.pytest_cache/
