@@ -9,7 +9,7 @@
 -->
 
 <p align="center">
-<img width="862" height="263" alt="image" src="https://github.com/user-attachments/assets/38cd4e17-c96f-4b26-a2b7-3dfebadd08ab" />
+<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/38cd4e17-c96f-4b26-a2b7-3dfebadd08ab" />
 
 </p>
 
