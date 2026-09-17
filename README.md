@@ -77,7 +77,7 @@ This repository will contain projects and notes from my learning path.
 
     > This comprehensive mastery bridges **probability theory, statistical inference, and real-world data analysis** - critical capabilities for **Cloud Security Data Engineering** where detecting anomalies, quantifying risk, and making data-driven security decisions require rigorous statistical thinking. From calibrating intrusion detection systems with Bayes' theorem to establishing dynamic alert thresholds with confidence intervals, this foundation transforms raw cloud telemetry into actionable security intelligence.
 
-- **December 29, 2026**: ✅ **Mastered Pandas for Data Engineering**
+- **December 29, 2025**: ✅ **Mastered Pandas for Data Engineering**
     Acquired complete proficiency in Pandas for security log analysis and data transformation:
     - **Series & DataFrame**: core data structures for tabular data
     - **Data I/O**: reading/writing CSV, Excel, JSON, Parquet, SQL databases
@@ -488,29 +488,522 @@ This repository will contain projects and notes from my learning path.
 
     > This expertise is directly applicable to building predictive security analytics, developing intelligent threat detection systems, and designing data-driven risk scoring pipelines in the cloud — essential capabilities for my role as a Cloud Security Data Engineer.
 
+
+- **July 4–September 13, 2026**: ✅ Completed Google Cybersecurity Foundation & Extended Learning
+
+Completed a structured cybersecurity learning pathway focused on developing a strong foundation for SOC operations, threat detection, incident response, and security analysis.
+
+My learning covered:
+
+* **Cybersecurity foundations:** security principles, security roles, cybersecurity architecture, and the importance of protecting information and systems.
+* **Security monitoring and telemetry:** understanding logs, their purpose, their limitations, and how they support security investigations.
+* **Incident triage and prioritization:** evaluating alerts based on urgency, severity, and potential business impact.
+* **Cybersecurity data collection:** understanding how security data is collected and prepared for analysis.
+* **Threat intelligence and threat hunting:** identifying indicators of compromise, understanding threat intelligence frameworks, and using collected information to support investigations.
+* **Attack frameworks:** MITRE ATT&CK, Diamond Model of Intrusion Analysis, and Cyber Kill Chain.
+* **Malware analysis:** understanding malware behavior, sandboxing, and the relationship between malicious activity and incident response.
+* **Security automation and scripting:** Python fundamentals and their application to cybersecurity tasks.
+* **Email and DNS security:** DNS fundamentals, SPF, DKIM, DMARC, and email diagnostic tools.
+* **AI in cybersecurity:** introductory concepts related to AI applications in security and the importance of structured reasoning when using AI systems.
+
+This learning phase helped me build a broader understanding of how cybersecurity operations connect **data collection, monitoring, detection, investigation, and response**.
+
+It also established the foundation for my next learning stages: developing practical SOC Analyst skills, improving detection engineering capabilities, and eventually applying security automation and machine learning to cybersecurity data.
+
+> **Note:** This is the first structured draft based on the Notion notes I was able to retrieve. I will refine it further as we inspect the remaining Google Cyber notes, particularly the Linux, Bash, Python, and additional security-tool sections.
+<img width="600" height="300" alt="cb1be6d388e56b01a0ac88c5edec787e" src="https://github.com/user-attachments/assets/bc108fe8-c03c-4508-9450-d0627ef34d5e" />
+
+
+- **August 18–September 17, 2026**: ✅ Completed Junior SOC Analyst Pathway
+
+Completed a structured learning pathway focused on developing practical SOC analyst capabilities, including security monitoring, alert investigation, threat hunting, endpoint analysis, and incident response.
+
+* **SOC Operations:** Studied SOC structures, analyst responsibilities, escalation procedures, and collaboration between SOC levels and incident response teams.
+* **SIEM & Alert Investigation:** Practiced investigating security alerts using SIEM concepts, event correlation, evidence analysis, and alert prioritization.
+* **Threat Hunting:** Learned proactive investigation methodologies, hypothesis-driven hunting, IOC analysis, and the relationship between automated detection and human-led investigation.
+* **Incident Response:** Studied the incident response lifecycle, including identification, containment, eradication, recovery, and post-incident improvement.
+* **Endpoint Investigations:** Explored endpoint monitoring and investigation using EDR concepts, Wazuh, and Sysmon telemetry.
+* **Detection Engineering:** Developed an understanding of how logs, detection rules, threat intelligence, and investigation findings support security monitoring.
+* **MITRE ATT&CK & Threat Analysis:** Applied attack frameworks to understand adversary behavior, map techniques, and structure investigations.
+* **Practical SOC Workflow:** Learned to evaluate findings based on severity, urgency, business impact, and available evidence before escalating an incident.
+
+This pathway strengthened my ability to approach cybersecurity incidents through a structured SOC workflow: **collect telemetry, investigate alerts, validate evidence, hunt for threats, and support incident response**. It provides a practical foundation for my future work in detection engineering, security automation, and cloud security monitoring.
+
+> [!NOTE]
+> ### 🧭 Learning Philosophy
+>
+> **Theory alone is not enough to understand a cybersecurity ecosystem.**
+>
+> My learning strategy combines theoretical foundations with hands-on practice.
+> For each Blue Team subdomain, I use the **Pareto principle as a learning heuristic**:
+> I prioritize industry-relevant tools and selected open-source alternatives that
+> provide strong learning value and help me understand the core concepts.
+>
+> My objective is not to collect as many tools as possible, but to develop
+> **transferable skills, practical experience, and an end-to-end understanding
+> of cybersecurity workflows**.
+>
+> I validate my knowledge through labs, investigations, automation exercises,
+> and practical projects.
+
+---
+
+## 📌 Rationale & Learning Strategy
+
+**Target Role:** Entry-Level SOC Analyst
+
+**Primary Ecosystem:** Blue Team
+
+**Learning Approach:** End-to-End, Hands-On & Progressive Specialization
+
+I decided to start my cybersecurity journey with the **Blue Team ecosystem**, with the goal of preparing for an entry-level SOC Analyst role.
+
+My objective is to understand cybersecurity from **end to end**, rather than simply learning how to use individual tools. I want to understand how security operations work in practice, from collecting and analyzing logs to detecting threats, investigating incidents, and responding to security events.
+
+This includes building a foundation through Google Cybersecurity, developing SOC analyst skills, studying threat intelligence, digital forensics, incident response, network security, and detection engineering.
+
+### 🛡️ Building a Blue Team Foundation
+
+To structure my learning, I organized my studies around several areas:
+
+- **Google Cyber:** Cybersecurity fundamentals, Linux, Bash, and Python.
+- **Junior Pathway SOC Analyst:** SOC operations, incident response, threat hunting, and endpoint investigations.
+- **SOC & Detection Engineering:** SIEM platforms, detection engineering, Sigma, MITRE ATT&CK, and adversary emulation.
+- **Network Security & Analysis:** Network monitoring, traffic analysis, vulnerability assessment, and security tools.
+- **Threat Intelligence & Malware Analysis:** Threat intelligence platforms, malware analysis, phishing investigation, and sandboxing.
+- **Digital Forensics:** Evidence analysis and forensic investigation tools.
+- **Splunk Ecosystem:** SIEM, enterprise security, cloud security, and SOAR automation.
+- **Red Team & Security Tools:** Initial exposure to offensive security and adversary simulation.
+- **Cloud & DevOps:** Terraform and Ansible as foundations for cloud infrastructure and automation.
+
+### 🧰 Tool Selection Strategy
+
+I select tools based on several criteria:
+
+- **Industry relevance:** Understanding tools and technologies used in professional security environments.
+- **Open-source alternatives:** Exploring accessible solutions that allow me to practice, experiment, and build hands-on skills in personal labs.
+- **Practical learning value:** Prioritizing tools that help me understand the underlying concepts rather than focusing only on their interfaces.
+- **Integration potential:** Selecting technologies that can be connected to broader workflows involving SIEM, detection engineering, automation, cloud security, and incident response.
+
+I believe that **theory alone is not sufficient to understand a cybersecurity ecosystem**. Concepts become more meaningful when I apply them through practical exercises, labs, investigations, and projects.
+
+### 📊 Applying the Pareto Principle
+
+To avoid simply collecting tools, I use the **Pareto principle as a learning heuristic** within each Blue Team subdomain.
+
+Instead of trying to master every available tool, I prioritize a focused selection of technologies that can provide significant learning value and help me understand the core concepts of each domain.
+
+For each subdomain, I aim to:
+
+1. Understand the fundamental concepts.
+2. Select relevant industry tools and open-source alternatives.
+3. Practice their essential capabilities through hands-on labs.
+4. Connect the tools to realistic security workflows.
+5. Validate my understanding through practical projects.
+
+The objective is not to learn as many tools as possible, but to develop **transferable skills and a strong understanding of the ecosystem**.
+
+### 🎯 Connection to My Long-Term Goals
+
+This approach will help me develop practical defensive security skills that support my long-term goals in:
+
+- Cloud Security
+- DevSecOps
+- Security Automation
+- Detection Engineering
+- Data Engineering
+- AI Security
+
+I also plan to explore **AI Security** later, particularly machine learning, anomaly detection, and security data analysis.
+
+My goal is to understand how security data can be collected, processed, analyzed, and used to support detection and response workflows.
+
+### ⚔️ Future Red Team Exploration
+
+After building a strong defensive foundation, I plan to follow a similar structured and hands-on approach with the **Red Team ecosystem**.
+
+Understanding attack techniques, attack paths, and adversary behavior will help me better understand what defenders need to monitor, detect, investigate, and mitigate.
+
+I intend to approach this phase with the same principles:
+
+- Learn the underlying concepts.
+- Select relevant industry and open-source tools.
+- Practice through controlled and authorized labs.
+- Connect offensive techniques to defensive detection.
+- Validate my knowledge through practical scenarios.
+
+### 🚀 Long-Term Objective
+
+Ultimately, my goal is to grow from an **Entry-Level SOC Analyst** into a security professional capable of connecting:
+
+**Blue Team → Red Team & Offensive Mindset → Cloud Security → DevSecOps → Security Automation → Data Engineering → ML/AI → AI Security**
+
+I am building this foundation progressively through structured learning, hands-on labs, practical projects, technical documentation, and continuous validation.
+
+My objective is to develop the ability to **build, deploy, secure, monitor, and improve intelligent security systems end to end**.
+
+## SOC & DETECTION ENGINEERING
+
+**July 6–September 13, 2026**: ✅ Completed SOC & Detection Engineering Learning Pathway
+
+Developed practical foundations in security monitoring, detection engineering, threat detection, endpoint telemetry, and adversary emulation through structured study and investigation-oriented exercises.
+
+### 1. Wazuh
+
+Studied Wazuh as an open-source security monitoring and detection platform, covering:
+
+- Security monitoring and threat detection capabilities.
+- Default and custom detection rules.
+- Custom decoders and tailored detection logic.
+- Malware, rootkit, and suspicious behavior detection.
+- MITRE ATT&CK integration and technique mapping.
+- Threat hunting using Wazuh telemetry.
+- Integration between Wazuh and the Elastic Stack.
+
+### 2. ELK Stack
+
+Explored the architecture and role of the main Elastic Stack components:
+
+- **Elasticsearch:** Storage, indexing, and searching security events.
+- **Logstash:** Log processing, transformation, and ingestion pipelines.
+- **Kibana:** Visualization, dashboards, and security investigations.
+- Integration of Wazuh data with the Elastic Stack.
+- Use of collected logs to support monitoring and detection workflows.
+
+### 3. Elastic Security
+
+Studied Elastic Security as a security analytics and detection platform, covering:
+
+- Security monitoring and threat detection.
+- Security rules and detection configuration.
+- AWS security data integration.
+- Prioritization of critical and high-severity detection rules.
+- Investigation of security events through Kibana.
+- Use of EQL for security-oriented event correlation and detection.
+
+### 4. ELK Security EDR
+
+Explored endpoint detection and response concepts within the Elastic ecosystem:
+
+- Endpoint visibility and monitoring through Elastic Defend.
+- Endpoint management using the **Endpoints** interface.
+- EDR telemetry and endpoint investigation.
+- Differences between traditional network-based detection and endpoint-focused detection.
+- Investigation and correlation of endpoint events within a SIEM/EDR workflow.
+
+### 5. Endpoint Telemetry & Monitoring
+
+Studied endpoint monitoring tools used to collect system activity data and support security investigations:
+
+- **Auditd:** Linux audit logs, system activity monitoring, and security event collection.
+- **Sysmon:** Windows process creation, network activity, system events, and endpoint telemetry.
+- **osquery:** Endpoint investigation, system inventory, and threat hunting through SQL-based queries.
+- Role of endpoint telemetry in detection engineering and SOC investigations.
+- Relationship between endpoint data collection, detection rules, and threat hunting workflows.
+
+### 6. Detection Engineering
+
+Studied the principles and lifecycle of detection engineering:
+
+- Detection engineering mindset and responsibilities within a SOC.
+- Detection Engineering Lifecycle.
+- Detection quality, reliability, and maintainability.
+- CREDO and ADS frameworks.
+- Cloud-native detection engineering.
+- EQL-based detection rules in Elastic Security.
+- Designing detections from telemetry, attack behaviors, and investigation requirements.
+
+### 7. Sigma
+
+Learned how Sigma provides a vendor-neutral format for describing detection rules:
+
+- Sigma rule structure and anatomy.
+- Detection logic, `logsource`, and metadata.
+- Rule fields, conditions, and detection patterns.
+- Mapping Sigma rules to MITRE ATT&CK techniques.
+- Converting Sigma rules for Elastic environments.
+- Understanding how detection rules transform security logs into actionable alerts.
+
+### 8. MITRE ATT&CK
+
+Studied the structure and practical use of the MITRE ATT&CK framework:
+
+- Tactics, techniques, sub-techniques, and procedures.
+- The 14 Enterprise ATT&CK tactics.
+- Mapping observed behaviors to ATT&CK techniques.
+- Using ATT&CK to structure investigations and detection coverage.
+- Integrating ATT&CK references into Wazuh and Sigma rules.
+- Creating structured detection logic based on techniques such as command execution and user discovery.
+
+### 9. Atomic Red Team
+
+Studied Atomic Red Team as a framework for testing security controls and validating detection capabilities:
+
+- Atomic Red Team architecture and test catalog.
+- Relationship between Atomic tests and MITRE ATT&CK techniques.
+- Listing, inspecting, and preparing atomic tests.
+- Local and remote execution of tests.
+- Using `Invoke-AtomicRedTeam`.
+- Automating atomic test execution.
+- Creating customized atomic tests.
+- Correlating adversary emulation activity with security telemetry and detection rules.
+
+### Overall Outcome
+
+This learning pathway strengthened my understanding of how a detection engineering workflow connects **endpoint telemetry, SIEM/EDR monitoring, detection rules, MITRE ATT&CK mapping, and adversary emulation**.
+
+It provides a foundation for collecting security data, investigating endpoint activity, developing detection logic, and validating security controls as part of my **Cloud Security Data Engineer and Detection Engineering journey**.
+
+## 4. NETWORK SECURITY & ANALYSIS
+
+**July 23–August 17, 2026**: ✅ Completed Network Security & Analysis Pathway
+
+Completed a structured learning pathway focused on **network visibility, traffic analysis, intrusion detection, and network monitoring**, covering:
+
+* **Wireshark:** Packet capture analysis, TCP/UDP/IPsec traffic inspection, host identification, and investigation of suspicious network communications.
+* **Suricata:** IDS/IPS fundamentals, passive and inline deployment concepts, alert monitoring, detection signatures, and IP reputation.
+* **Zeek:** Network Security Monitoring (NSM), network telemetry, protocol analysis, and large-scale visibility for threat detection.
+* **Network Analysis Fundamentals:** Traffic baselines, flow analysis, payload inspection, temporal patterns, and the relationship between network monitoring and SOC operations.
+* **Network Security Concepts:** Security zones, network segmentation, ARP inspection, and stateful firewall principles.
+
+This pathway strengthened my ability to **collect and analyze network telemetry, investigate suspicious communications, understand IDS/IPS detection mechanisms, and support threat detection and incident response workflows**.
+
+## 5. VULNERABILITY MANAGEMENT
+
+Cette catégorie se concentre sur **la découverte des actifs, l’identification des vulnérabilités et leur priorisation**. Elle complète la partie Network Security & Analysis en passant de l’observation du trafic à l’évaluation de la surface d’attaque.
+
+
+- **July 14–August 16, 2026**: ✅ Completed Vulnerability Management Pathway
+
+Completed a structured learning pathway covering **vulnerability discovery, security assessment, vulnerability analysis, and risk-based prioritization**, including:
+
+* **Nmap:** Network discovery, port scanning, service enumeration, OS detection, and the Nmap Scripting Engine (NSE).
+* **Nessus:** Vulnerability scanning, scanner architecture, plugin families, and security assessment workflows.
+* **CVSS:** Vulnerability severity scoring and risk prioritization.
+* **Vulnerability Analysis:** CVE identification, NVD references, plugin output analysis, and CVSS-based assessment.
+* **Vulnerability Management:** The continuous process of identifying, assessing, prioritizing, and managing security weaknesses.
+
+This pathway strengthened my understanding of how to **identify exposed services, interpret vulnerability scanner results, assess security risks, and prioritize remediation activities** within a structured vulnerability management process.
+Exactement ! **Cortex appartient à la Threat Intelligence (TI)**, notamment pour l’enrichissement des IOC et l’automatisation des investigations.
+
+On continue donc avec **Threat Intelligence**.
+
+## 6. THREAT INTELLIGENCE
+
+**August 18–24, 2026**: ✅ Completed Threat Intelligence Pathway
+
+Completed a structured learning pathway focused on threat intelligence collection, IOC investigation, reputation analysis, and intelligence management, covering:
+
+* **VirusTotal:** File, URL, domain, and IP reputation analysis.
+* **AbuseIPDB:** IP reputation and abuse investigation.
+* **AlienVault OTX:** Open-source threat intelligence and IOC enrichment.
+* **MXToolbox & Google Admin Toolbox:** DNS, email, and domain investigation.
+* **MISP & OpenCTI:** Threat intelligence sharing, organization, and knowledge management.
+* **MITRE CAR:** Detection analytics and intelligence-driven detection development.
+* **Cortex:** Observable enrichment and investigation automation.
+
+This pathway strengthened my ability to **collect, investigate, enrich, and organize threat intelligence** to support SOC investigations, detection engineering, and incident response workflows.
+
+## 7. PHISHING ANALYSIS & SANDBOXING
+
+**August 25–September 3, 2026**: ✅ Completed Phishing Analysis & Sandboxing Pathway
+
+Completed a practical learning pathway focused on phishing investigation, suspicious URL analysis, and sandbox-based behavioral analysis, covering:
+
+* **PhishTool:** Phishing email analysis and investigation workflows.
+* **URLScan:** URL and website inspection, including suspicious indicators.
+* **ANY.RUN:** Interactive malware analysis and behavioral observation.
+* **CAPE Sandbox:** Automated malware analysis and behavioral monitoring.
+* **Hybrid Analysis:** File and malware analysis through sandbox-based investigation.
+* **Sandboxing Concepts:** Dynamic analysis, observable collection, and suspicious behavior identification.
+
+This pathway strengthened my ability to **investigate suspicious emails, URLs, and files**, analyze observed behaviors, and enrich security investigations using phishing analysis and sandboxing platforms.
+
+## 8. MALWARE ANALYSIS & DETECTION CONCEPTS
+
+**September 4–17, 2026**: ✅ Completed Malware Analysis & Detection Concepts Pathway
+
+Completed a foundational learning pathway covering malware analysis methodologies, pattern-based detection, and artifact investigation, including:
+
+* **Malware Analysis Fundamentals:** Static analysis, dynamic analysis, and behavioral analysis.
+* **Malware Investigation:** Behavioral indicators, suspicious activities, and investigation methodologies.
+* **YARA:** Rule structure, pattern matching, and signature-based malware detection.
+* **CyberChef:** Data decoding, transformation, and artifact analysis.
+* **IOC Extraction:** Identifying and preparing indicators for threat investigations and detection workflows.
+
+This pathway strengthened my understanding of **malware investigation techniques, detection logic, and artifact analysis**, supporting threat detection and incident response activities.
+
+
+## 9. DIGITAL FORENSICS & INCIDENT RESPONSE (DFIR)
+
+**August 25–September 17, 2026**: ✅ Completed Digital Forensics & Incident Response Pathway
+
+Completed a structured learning pathway focused on digital evidence acquisition, forensic examination, memory analysis, and investigation workflow automation, covering:
+
+* **Volatility:** Memory forensics and analysis of volatile artifacts.
+* **Autopsy:** Disk forensics and digital evidence examination.
+* **KAPE:** Forensic artifact collection and rapid triage.
+* **FTK Imager:** Forensic imaging, evidence acquisition, and integrity preservation.
+* **Plaso:** Timeline generation and forensic artifact analysis.
+* **Shuffle:** DFIR workflow automation and security orchestration.
+
+This pathway strengthened my understanding of **digital evidence collection, forensic investigation, memory analysis, and incident response workflows**, supporting structured investigations and evidence-based security analysis.
+
+## 10. CASE MANAGEMENT
+
+- **September 4–5, 2026**: ✅ Completed Case Management Pathway
+
+Completed a structured learning pathway focused on incident management, investigation tracking, and collaborative security operations, covering:
+
+* **TheHive:** Case management, alert triage, investigation tracking, task assignment, and incident documentation.
+* **Incident Case Management Concepts:** Case lifecycle, evidence organization, investigation workflow, and incident status tracking.
+
+This pathway strengthened my understanding of **structuring security investigations, documenting incident response activities, and managing cases throughout the investigation lifecycle**.
+
+## 10. SPLUNK ECOSYSTEM
+
+- **July 24–September 10, 2026**: ✅ Completed Splunk Ecosystem Pathway
+
+Completed a structured learning pathway focused on security monitoring, SIEM operations, security orchestration, and enterprise security analytics, covering:
+
+### 1. Splunk & Splunk SOAR
+
+* **Splunk:** Log management, search, data analysis, and security monitoring.
+* **Splunk Enterprise SOAR:** Security orchestration, automation, and response workflows.
+* **Splunk SOAR (On-Prem) – Delta:** On-premises SOAR concepts and operational workflows.
+* **Splunk App for SOAR:** Integration of Splunk capabilities with security orchestration workflows.
+
+### 2. Splunk Cloud Platform
+
+* Cloud-based log management and security monitoring.
+* Data ingestion, search, and analysis within a cloud environment.
+
+### 3. Splunk Enterprise Security
+
+* Security information and event management (SIEM).
+* Security monitoring, investigation, and threat detection workflows.
+* Correlation of security events and investigation support.
+
+This pathway strengthened my understanding of the **Splunk ecosystem**, including SIEM operations, cloud-based security monitoring, SOAR capabilities, and enterprise security investigation workflows.
+
+Tu as raison. Après vérification dans Notion, voici des dates **cohérentes avec les traces disponibles**. Les dates correspondent aux timestamps des notes Notion, donc elles servent de repères documentaires.
+
+## 11. CASE MANAGEMENT
+
+### September 4–5, 2026: ✅ Completed Case Management Pathway
+
+Covered:
+
+* **TheHive:** Case management, alert triage, investigation tracking, and incident documentation.
+* **TheHive API & TheHive4py:** Programmatic case management and automation.
+* **TheHive + Cortex:** Integration and investigation workflows.
+* **Splunk → TheHive:** Alert ingestion and security workflow integration.
+
+This pathway strengthened my understanding of **incident case management, investigation tracking, and security workflow integration**.
+
+
+## 12. ADVERSARY EMULATION & SECURITY VALIDATION
+
+**August 2–20, 2026**: ✅ Completed MITRE Caldera Pathway
+
+Covered:
+
+* Caldera installation and configuration.
+* Agents, abilities, adversaries, operations, facts, and planners.
+* Sandcat agent.
+* Plugin ecosystem.
+* API, tunneling, and peer-to-peer communication.
+* Adversary emulation and incident response applications.
+
+This pathway strengthened my understanding of **adversary emulation, attack simulation, and detection validation using MITRE ATT&CK-aligned activities**.
+
+
+
+**July 17–24, 2026**: ✅ Completed Terraform Pathway
+
+Completed a structured learning pathway focused on **Infrastructure as Code (IaC), cloud infrastructure provisioning, automation, and security**, covering:
+
+* **Terraform Fundamentals:** Infrastructure as Code concepts, Terraform configuration language, types, values, and expressions.
+* **Terraform Cloud:** Managed Terraform workflows, state management, and infrastructure collaboration.
+* **Terraform Modules:** Reusable infrastructure components and scalability.
+* **Terraform Automation:** GitHub Actions integration and automated infrastructure workflows.
+* **Terraform Security:** Checkov for Infrastructure as Code security scanning and compliance validation.
+* **AWS Infrastructure:** Auto Scaling Groups and AWS Keyspaces provisioning using Terraform.
+
+This pathway strengthened my ability to **define, provision, automate, and secure cloud infrastructure using Terraform**, supporting DevSecOps and cloud automation practices.
+
+
+
+**July 31–August 7, 2026**: ✅ Completed Ansible Pathway
+
+Completed a structured learning pathway focused on **IT automation, configuration management, infrastructure provisioning, and deployment automation**, covering:
+
+* **Ansible Fundamentals:** Core concepts, architecture, and implementation.
+* **Installation & Configuration:** Ansible installation, configuration, and execution environments.
+* **Inventory Management:** Static and dynamic inventories, connection management, and localhost administration.
+* **Ad Hoc Commands:** Remote command execution and system administration.
+* **Playbooks:** Playbook structure, task automation, and advanced playbook concepts.
+* **CLI Tools:** Ansible command-line tools and operational workflows.
+* **Patterns:** Host selection and targeted automation using Ansible patterns.
+
+This pathway strengthened my ability to **automate infrastructure configuration, manage systems, and execute repeatable deployment workflows using Ansible**, supporting DevOps and DevSecOps practices.
+
+
+
 [👉**For more details of progress**](https://github.com/Duracuir96/cybersecurity-journey/tree/main/self-learning%20labs)
 
 ---
 ### 📈 What I'm Learning NOW
 
 ### 🏗️ Building Practical Skills
-- **IT & Infrastructure:** Hardware, systems, networking
-- **Cloud Computing:** AWS, cloud services, architecture  
-- **Data Fundamentals:** **Python, Pandas**, statistics, analysis
-- **Real Projects:** SalesFlow Lite development, cloud logs Analyzer developement
 
-### 🎯 Learning with Purpose
-- Following a custom-designed learning path
-- Focusing on skills that matter in the industry
-- **Developing strong Python/Pandas capabilities**
-- Combining multiple disciplines for unique expertise
-- Building things that work in the real world
+- **Cloud & DevOps:** Docker, CI/CD, Jenkins, Argo CD, Kubernetes and infrastructure automation
+- **Cloud-Native Systems:** MongoDB, Kafka, RabbitMQ, Redis and distributed application components
+- **Data Engineering:** Python, Pandas, Apache Spark and data processing pipelines
+- **AI & Machine Learning:** Explainable AI (SHAP, LIME), anomaly detection and ML-powered security solutions
+- **Application Development:** React, HTMX, CSS and Tailwind CSS
+- **Identity & Security:** Keycloak, authentication, authorization and secure application integration
+- **Real Projects:** SalesFlow Lite and Cloud Log Analyzer
 
-### ⚡ Right Now
-- Deep diving into computer systems fundamentals
-- **Mastering data manipulation with Pandas**
-- Parallelly exploring cloud computing concepts
-- Applying everything to actual project development
-  
-👉 Connect with me on http://linkedin.com/in/voldi-bokanga
-I document my learning journey on my Hashnode blog: https://secdatablog.hashnode.dev/
+### 🎯 My Learning Strategy
+
+I follow a structured, hands-on learning path designed to develop end-to-end engineering capabilities.
+
+My goal is to understand how to:
+
+- Build and secure applications and infrastructure
+- Collect, process and analyze security data
+- Automate infrastructure and security workflows
+- Deploy and operate reliable systems
+- Develop explainable ML-based security solutions
+- Connect development, operations, data engineering and cybersecurity
+
+### 🔭 What's Next
+
+My upcoming learning priorities include:
+
+- **Observability Engineering:** Building my observability stack to strengthen my DevOps capabilities through metrics, logs, traces and monitoring
+- **Big Data & Data Engineering:** Learning tools and architectures for processing large volumes of data and security logs
+- **Scalable ML Deployment:** Deploying and operating machine learning models at scale
+- **Red Team & Offensive Security:** Exploring the Red Team ecosystem to understand attack techniques and improve defensive capabilities
+- **Security Engineering:** Connecting offensive security, detection engineering, cloud security and DevSecOps
+- **Professional Certification:** Preparing for the CompTIA Security+ certification
+
+### 🧭 Learning with Purpose
+
+My long-term objective is to become a **Cloud Security Data Engineer**, combining:
+
+- Cloud Security
+- DevSecOps
+- Data Engineering
+- Detection Engineering
+- Security Automation
+- Machine Learning and AI Security
+
+I am building these skills progressively through technical study, hands-on labs, practical projects and continuous documentation.
+
+My approach is to understand security end-to-end: from infrastructure and application development to data processing, threat detection, incident response and offensive security.
+
+👉 Connect with me on [LinkedIn](https://linkedin.com/in/voldi-bokanga)
+
+I document my learning journey on my [Hashnode blog](https://secdatablog.hashnode.dev/).
