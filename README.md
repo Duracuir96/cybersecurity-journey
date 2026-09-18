@@ -528,117 +528,47 @@ Completed a structured learning pathway focused on developing practical SOC anal
 * **Practical SOC Workflow:** Learned to evaluate findings based on severity, urgency, business impact, and available evidence before escalating an incident.
 
 This pathway strengthened my ability to approach cybersecurity incidents through a structured SOC workflow: **collect telemetry, investigate alerts, validate evidence, hunt for threats, and support incident response**. It provides a practical foundation for my future work in detection engineering, security automation, and cloud security monitoring.
-
 > [!NOTE]
 > ### 🧭 Learning Philosophy
 >
-> **Theory alone is not enough to understand a cybersecurity ecosystem.**
+> **Theory alone is not enough to understand cybersecurity.**
 >
-> My learning strategy combines theoretical foundations with hands-on practice.
-> For each Blue Team subdomain, I use the **Pareto principle as a learning heuristic**:
-> I prioritize industry-relevant tools and selected open-source alternatives that
-> provide strong learning value and help me understand the core concepts.
+> I combine theoretical foundations with hands-on practice, using the
+> **Pareto principle as a learning heuristic**. I prioritize industry-relevant
+> tools and selected open-source alternatives to develop practical,
+> transferable skills rather than simply collecting tools.
 >
-> My objective is not to collect as many tools as possible, but to develop
-> **transferable skills, practical experience, and an end-to-end understanding
-> of cybersecurity workflows**.
->
-> I validate my knowledge through labs, investigations, automation exercises,
+> My knowledge is validated through labs, investigations, automation exercises,
 > and practical projects.
 
 ---
 
 ## 📌 Rationale & Learning Strategy
 
-**Target Role:** Entry-Level SOC Analyst
-
-**Primary Ecosystem:** Blue Team
-
+**Target Role:** Entry-Level SOC Analyst  
+**Primary Ecosystem:** Blue Team  
 **Learning Approach:** End-to-End, Hands-On & Progressive Specialization
 
-I decided to start my cybersecurity journey with the **Blue Team ecosystem**, with the goal of preparing for an entry-level SOC Analyst role.
+I started with the **Blue Team ecosystem** to understand cybersecurity end to end—from log collection and threat detection to investigation and incident response.
 
-My objective is to understand cybersecurity from **end to end**, rather than simply learning how to use individual tools. I want to understand how security operations work in practice, from collecting and analyzing logs to detecting threats, investigating incidents, and responding to security events.
-
-This includes building a foundation through Google Cybersecurity, developing SOC analyst skills, studying threat intelligence, digital forensics, incident response, network security, and detection engineering.
-
-### 🛡️ Building a Blue Team Foundation
-
-To structure my learning, I organized my studies around several areas:
+My learning path covers:
 
 - **Google Cyber:** Cybersecurity fundamentals, Linux, Bash, and Python.
-- **Junior Pathway SOC Analyst:** SOC operations, incident response, threat hunting, and endpoint investigations.
-- **SOC & Detection Engineering:** SIEM platforms, detection engineering, Sigma, MITRE ATT&CK, and adversary emulation.
-- **Network Security & Analysis:** Network monitoring, traffic analysis, vulnerability assessment, and security tools.
-- **Threat Intelligence & Malware Analysis:** Threat intelligence platforms, malware analysis, phishing investigation, and sandboxing.
-- **Digital Forensics:** Evidence analysis and forensic investigation tools.
-- **Splunk Ecosystem:** SIEM, enterprise security, cloud security, and SOAR automation.
-- **Red Team & Security Tools:** Initial exposure to offensive security and adversary simulation.
-- **Cloud & DevOps:** Terraform and Ansible as foundations for cloud infrastructure and automation.
+- **Junior SOC Analyst:** SOC operations, threat hunting, and incident response.
+- **Detection & Monitoring:** SIEM, Sigma, MITRE ATT&CK, and endpoint telemetry.
+- **Network & Threat Analysis:** Network security, vulnerability management, CTI, and malware analysis.
+- **DFIR & Automation:** Digital forensics, case management, and SOAR.
+- **Cloud & DevOps:** Terraform and Ansible.
 
-### 🧰 Tool Selection Strategy
+I select tools based on **industry relevance, practical value, open-source accessibility, and integration potential**. My goal is to understand core concepts through hands-on practice, not just theoretical study.
 
-I select tools based on several criteria:
+This foundation supports my long-term goals in **Cloud Security, DevSecOps, Security Automation, Data Engineering, and ML/AI Security**.
 
-- **Industry relevance:** Understanding tools and technologies used in professional security environments.
-- **Open-source alternatives:** Exploring accessible solutions that allow me to practice, experiment, and build hands-on skills in personal labs.
-- **Practical learning value:** Prioritizing tools that help me understand the underlying concepts rather than focusing only on their interfaces.
-- **Integration potential:** Selecting technologies that can be connected to broader workflows involving SIEM, detection engineering, automation, cloud security, and incident response.
-
-I believe that **theory alone is not sufficient to understand a cybersecurity ecosystem**. Concepts become more meaningful when I apply them through practical exercises, labs, investigations, and projects.
-
-### 📊 Applying the Pareto Principle
-
-To avoid simply collecting tools, I use the **Pareto principle as a learning heuristic** within each Blue Team subdomain.
-
-Instead of trying to master every available tool, I prioritize a focused selection of technologies that can provide significant learning value and help me understand the core concepts of each domain.
-
-For each subdomain, I aim to:
-
-1. Understand the fundamental concepts.
-2. Select relevant industry tools and open-source alternatives.
-3. Practice their essential capabilities through hands-on labs.
-4. Connect the tools to realistic security workflows.
-5. Validate my understanding through practical projects.
-
-The objective is not to learn as many tools as possible, but to develop **transferable skills and a strong understanding of the ecosystem**.
-
-### 🎯 Connection to My Long-Term Goals
-
-This approach will help me develop practical defensive security skills that support my long-term goals in:
-
-- Cloud Security
-- DevSecOps
-- Security Automation
-- Detection Engineering
-- Data Engineering
-- AI Security
-
-I also plan to explore **AI Security** later, particularly machine learning, anomaly detection, and security data analysis.
-
-My goal is to understand how security data can be collected, processed, analyzed, and used to support detection and response workflows.
-
-### ⚔️ Future Red Team Exploration
-
-After building a strong defensive foundation, I plan to follow a similar structured and hands-on approach with the **Red Team ecosystem**.
-
-Understanding attack techniques, attack paths, and adversary behavior will help me better understand what defenders need to monitor, detect, investigate, and mitigate.
-
-I intend to approach this phase with the same principles:
-
-- Learn the underlying concepts.
-- Select relevant industry and open-source tools.
-- Practice through controlled and authorized labs.
-- Connect offensive techniques to defensive detection.
-- Validate my knowledge through practical scenarios.
+I will later explore the **Red Team ecosystem and offensive mindset** through the same structured approach, connecting attack techniques to defensive detection and response.
 
 ### 🚀 Long-Term Objective
 
-Ultimately, my goal is to grow from an **Entry-Level SOC Analyst** into a security professional capable of connecting:
-
 **Blue Team → Red Team & Offensive Mindset → Cloud Security → DevSecOps → Security Automation → Data Engineering → ML/AI → AI Security**
-
-I am building this foundation progressively through structured learning, hands-on labs, practical projects, technical documentation, and continuous validation.
 
 My objective is to develop the ability to **build, deploy, secure, monitor, and improve intelligent security systems end to end**.
 
