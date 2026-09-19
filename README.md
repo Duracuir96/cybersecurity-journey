@@ -700,9 +700,6 @@ This pathway strengthened my ability to **collect and analyze network telemetry,
 
 ## 5. VULNERABILITY MANAGEMENT
 
-Cette catégorie se concentre sur **la découverte des actifs, l’identification des vulnérabilités et leur priorisation**. Elle complète la partie Network Security & Analysis en passant de l’observation du trafic à l’évaluation de la surface d’attaque.
-
-
 - **July 14–August 16, 2026**: ✅ Completed Vulnerability Management Pathway
 
 Completed a structured learning pathway covering **vulnerability discovery, security assessment, vulnerability analysis, and risk-based prioritization**, including:
